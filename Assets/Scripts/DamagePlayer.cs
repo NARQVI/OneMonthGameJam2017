@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *Class that models the behaviour of a collision that
+ * deals damage to the player
+ */
+
 public class DamagePlayer : MonoBehaviour {
 
     public int playerDamage;           // Damage points when hit to player

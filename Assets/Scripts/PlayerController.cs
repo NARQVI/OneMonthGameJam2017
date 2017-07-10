@@ -4,19 +4,25 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
+/*
+ *Class that models the behaviour of the player 
+ */
+
 public class PlayerController : MonoBehaviour {
 
     [SerializeField]
-    public float life = 100f; //Models the players life
-    public Text lifeText;       //Text with player life
-    public float moveSpeed = 15f;
+    public float life = 100f;           //Models the players life
+    public Text lifeText;               //Text with player life
+    public float moveSpeed = 15f;       //Object movement speed 
 
     Vector3 forward, right;
-    Rigidbody rb;               //Thos object rigid body
+    Rigidbody rb;                       //This object rigid body
+    Animator animator;                  //this object animator
+    Vector3 movement;
     // Use this for initialization
-    void Start()
+    void Awake()
     {
-        GetComponent<Renderer>().material.color = Color.grey;
+        
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
@@ -25,29 +31,46 @@ public class PlayerController : MonoBehaviour {
         lifeText.text = "Life: " + life;
 
         rb = GetComponent<Rigidbody>();     //Gets rigid body component
+        animator = GetComponent<Animator>(); //Gets animator component
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Space))    //Check if space key is down
+            Attack();   //Calls attack method
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-            Move();
+        float horizontal = Input.GetAxisRaw("Horizontal");  //Get horizontal input
+        float vertical = Input.GetAxisRaw("Vertical");      //Get vertical input
+        Move(horizontal,vertical);  //Calls Move method
     }
 
-    void Move()
+    //Moves the player in a given direction
+    void Move(float h, float v)
     {
-        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
-        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
-
+        Vector3 rightMovement = right * moveSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
+        Vector3 upMovement = forward * moveSpeed * Time.deltaTime *v;
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-
         transform.forward = heading;
 
-        rb.velocity += rightMovement;   //Change velocity of rigid body.
-        rb.velocity += upMovement;
-
+        movement = rightMovement + upMovement;  
+        movement = movement.normalized * moveSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
+        rb.MovePosition(transform.position+movement);   //Moves the object
+        animator.SetFloat("Velocity",Mathf.Abs(Input.GetAxisRaw("Horizontal"))+Mathf.Abs( Input.GetAxisRaw("Vertical"))); //Set the value of "Velocity" in the animator
+       
 
     }
 
+    //Makes the player attack
+    void Attack()
+    {
+        animator.SetTrigger("Attack"); //Sets the animation
+    }
+
+    //Makes the calculation for a hit to the player given for an enemy
     public void Hit(float hit)
     {
         life -= hit;
@@ -61,6 +84,7 @@ public class PlayerController : MonoBehaviour {
 
     }
 
+    //Restart the game
     void GameOver()
     {
         SceneManager.LoadScene(0);

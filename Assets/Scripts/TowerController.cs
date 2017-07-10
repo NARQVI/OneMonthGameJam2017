@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *Class that models the behaviour of the tower 
+ */
+
 public class TowerController : MonoBehaviour {
 
     public GameObject bullet;                   //Game object that models the bullet to be fired

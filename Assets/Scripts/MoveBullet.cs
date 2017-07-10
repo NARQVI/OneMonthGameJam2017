@@ -2,6 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+/*
+ *Class that models the moving of a bullet 
+ */
+
 public class MoveBullet : MonoBehaviour {
 
     public float speed;                 //Moving speed
