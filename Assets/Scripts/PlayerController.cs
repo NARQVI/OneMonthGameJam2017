@@ -9,10 +9,10 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     public float life = 100f; //Models the players life
     public Text lifeText;       //Text with player life
+    public float moveSpeed = 15f;
 
-    float moveSpeed = 4f;
     Vector3 forward, right;
-
+    Rigidbody rb;               //Thos object rigid body
     // Use this for initialization
     void Start()
     {
@@ -23,28 +23,29 @@ public class PlayerController : MonoBehaviour {
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
 
         lifeText.text = "Life: " + life;
+
+        rb = GetComponent<Rigidbody>();     //Gets rigid body component
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (Input.anyKey)
             Move();
     }
 
     void Move()
     {
-        Vector3 direction = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxis("Horizontal");
-        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxis("Vertical");
+        Vector3 rightMovement = right * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Horizontal");
+        Vector3 upMovement = forward * moveSpeed * Time.deltaTime * Input.GetAxisRaw("Vertical");
 
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
 
         transform.forward = heading;
 
-        transform.position += rightMovement;
+        rb.velocity += rightMovement;   //Change velocity of rigid body.
+        rb.velocity += upMovement;
 
-        transform.position += upMovement;
+
     }
 
     public void Hit(float hit)
