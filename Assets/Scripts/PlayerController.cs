@@ -19,6 +19,13 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
     Vector3 movement;
+
+	/* Atributos de Audio */
+	public string PlayerAttackEvent; // Event Player Attack
+	public string PlayerMoveIceEvent; // Event Player move in Ice
+	public string PlayerMoveEvent; // Event Player Move 
+
+
     // Use this for initialization
     void Awake()
     {
@@ -32,6 +39,13 @@ public class PlayerController : MonoBehaviour {
 
         rb = GetComponent<Rigidbody>();     //Gets rigid body component
         animator = GetComponent<Animator>(); //Gets animator component
+
+
+		/* Initialization for Audio Events */
+		PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
+		PlayerMoveIceEvent = "event:/Player/MoveIce"; // Event Move ice
+		PlayerMoveEvent = "event:/Player/Move"; // Event Move
+
     }
 
     private void Update()
@@ -68,6 +82,7 @@ public class PlayerController : MonoBehaviour {
     void Attack()
     {
         animator.SetTrigger("Attack"); //Sets the animation
+		FMODUnity.RuntimeManager.PlayOneShot(PlayerAttackEvent, transform.position);
     }
 
     //Makes the calculation for a hit to the player given for an enemy
