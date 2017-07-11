@@ -19,7 +19,7 @@
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0x10fac4608 isAsync 1 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0x10f637608 isAsync 1 updatePeriod 0.02
 [LOG] Thread::initThread                       : Init FMOD Studio update thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
@@ -37,14 +37,14 @@
 [LOG] SystemI::createSoundInternal             : exinfo->length             = 24736
 [LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 17984
 [LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
-[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x700008a43c48
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x7000193e6c48
 [LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
 [LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
-[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x14dc1e1be
-[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x14dc1e27a
-[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x14dc1e2aa
-[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x14dc1e347
-[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x1391b1a28
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x14af171be
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x14af1727a
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x14af172aa
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x14af17347
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x1481b65c8
 [LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
 [LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
 [LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
@@ -52,26 +52,24 @@
 [LOG] SystemI::createSoundInternal             : creating subsound 0/1
 [LOG] SystemI::createSample                    : mode 02000202 length 26811 samples, lengthbytes 5248
 [LOG] SystemI::createSample                    : channels = 1
-[LOG] SystemI::createSample                    : output = 0x10e3a6218
+[LOG] SystemI::createSample                    : output = 0x1351bcc68
 [LOG] OutputSoftware::createSample             : lengthpcm 26811, lengthbytes 5248, channels 1, format 2, freq 48000, mode 0200020a
 [LOG] SystemI::createSoundInternal             : No name found in file, use filename.
 [LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
 
-[LOG] LiveUpdate::clientConnected              : client = 0x126c10008
-[LOG] LiveUpdate::readPacket                   : Accepting init message for client 0x126c10008
+[LOG] LiveUpdate::clientConnected              : client = 0x149020e08
+[LOG] LiveUpdate::readPacket                   : Accepting init message for client 0x149020e08
 [LOG] LiveUpdate::transitionToConnected        : 
-[LOG] LiveUpdate::acceptInitPacket             : Client 0x126c10008 connected, entering connected state
-[LOG] SystemI::mixerSuspend                    : Suspending output.
-[LOG] SystemI::mixerResume                     : Resuming output.
-[LOG] SoundI::release                          :  (0x10e3cd5b8)
-[LOG] SoundI::release                          : release subsounds. (0x10e3cd5b8)
-[LOG] SoundI::release                          :     145242__nathanaelj83__water-step (0x10e37d768)
+[LOG] LiveUpdate::acceptInitPacket             : Client 0x149020e08 connected, entering connected state
+[LOG] SoundI::release                          :  (0x13af44f68)
+[LOG] SoundI::release                          : release subsounds. (0x13af44f68)
+[LOG] SoundI::release                          :     145242__nathanaelj83__water-step (0x13ced4ab8)
 [LOG] SoundI::release                          :     done
-[LOG] SoundI::release                          : release codec. (0x10e3cd5b8)
+[LOG] SoundI::release                          : release codec. (0x13af44f68)
 [LOG] SoundI::release                          : done
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] LiveUpdate::clientDisconnected           : client = 0x126c10008
+[LOG] LiveUpdate::clientDisconnected           : client = 0x149020e08
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.

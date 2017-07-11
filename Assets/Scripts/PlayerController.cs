@@ -52,6 +52,7 @@ public class PlayerController : MonoBehaviour {
     {
         if (Input.GetKeyDown(KeyCode.Space))    //Check if space key is down
             Attack();   //Calls attack method
+
     }
 
     // Update is called once per frame
@@ -74,7 +75,10 @@ public class PlayerController : MonoBehaviour {
         movement = movement.normalized * moveSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
         rb.MovePosition(transform.position+movement);   //Moves the object
         animator.SetFloat("Velocity",Mathf.Abs(Input.GetAxisRaw("Horizontal"))+Mathf.Abs( Input.GetAxisRaw("Vertical"))); //Set the value of "Velocity" in the animator
-       
+	
+		if(transform){
+			
+		}
 
     }
 
@@ -98,6 +102,7 @@ public class PlayerController : MonoBehaviour {
             lifeText.text = "Life: " + life;
 
     }
+
 
     //Restart the game
     void GameOver()
