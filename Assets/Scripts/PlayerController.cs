@@ -21,10 +21,9 @@ public class PlayerController : MonoBehaviour {
     Vector3 movement;
 
 	/* Atributos de Audio */
+	[FMODUnity.EventRef]
 	public string PlayerAttackEvent; // Event Player Attack
-	public string PlayerMoveIceEvent; // Event Player move in Ice
 	public string PlayerMoveEvent; // Event Player Move 
-
 
     // Use this for initialization
     void Awake()
@@ -43,7 +42,6 @@ public class PlayerController : MonoBehaviour {
 
 		/* Initialization for Audio Events */
 		PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
-		PlayerMoveIceEvent = "event:/Player/MoveIce"; // Event Move ice
 		PlayerMoveEvent = "event:/Player/Move"; // Event Move
 
     }
@@ -76,8 +74,20 @@ public class PlayerController : MonoBehaviour {
         rb.MovePosition(transform.position+movement);   //Moves the object
         animator.SetFloat("Velocity",Mathf.Abs(Input.GetAxisRaw("Horizontal"))+Mathf.Abs( Input.GetAxisRaw("Vertical"))); //Set the value of "Velocity" in the animator
 	
-		if(transform){
-			
+
+		if (h != 0 || v != 0) {
+
+			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(PlayerMoveEvent); // Create a instance of the sound event 
+			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+
+			if (moveSpeed == 5)
+				e.setParameterValue ("Ice", 1f); // Change the parameter when the player move on ice surface
+			else
+				e.setParameterValue ("Ice", 0f); // Change the parameter when the player move on a diferent surface
+
+			e.start();
+			e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+
 		}
 
     }

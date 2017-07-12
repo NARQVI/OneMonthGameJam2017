@@ -6,6 +6,8 @@
 [LOG] SystemI::setOutputInternal               : Setting output to type 12
 [LOG] OutputCoreAudio::enumerate               : Enumerating...
 [LOG] OutputCoreAudio::enumerate               : Found output driver: "Built-in Output".
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "Scarlett 2i4 USB".
+[LOG] OutputCoreAudio::enumerate               : Found output driver: "Pro Tools Aggregate I/O".
 [LOG] OutputCoreAudio::enumerate               : Done.
 [LOG] SystemI::setOutputInternal               : Setting output to type 12
 [LOG] SystemI::setOutputInternal               : Setting output to type 12
@@ -19,7 +21,7 @@
 [LOG] SystemI::init                            : create the stream thread
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: Yes, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 0x149c01408 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0x146e66008 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -27,4 +29,126 @@
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
+[LOG] SystemI::createSoundInternal             : filename =  : mode 02000202
+[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 232
+[LOG] SystemI::createSoundInternal             : exinfo->length             = 24736
+[LOG] SystemI::createSoundInternal             : exinfo->fileoffset         = 18080
+[LOG] SystemI::createSoundInternal             : exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlist      = 0x700000564c48
+[LOG] SystemI::createSoundInternal             : exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             : exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             : exinfo->useropen           = 0x14be461be
+[LOG] SystemI::createSoundInternal             : exinfo->userclose          = 0x14be4627a
+[LOG] SystemI::createSoundInternal             : exinfo->userread           = 0x14be462aa
+[LOG] SystemI::createSoundInternal             : exinfo->userseek           = 0x14be46347
+[LOG] SystemI::createSoundInternal             : exinfo->fileuserdata       = 0x1209d7768
+[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 5
+[LOG] SystemI::createSoundInternal             : Format has 1 subsounds.
+[LOG] SystemI::createSoundInternal             : Create as FMOD_CREATESAMPLE
+[LOG] SystemI::createSoundInternal             : Multi-sample sound (1 subsounds), create a sample container.
+[LOG] SystemI::createSoundInternal             : creating subsound 0/1
+[LOG] SystemI::createSample                    : mode 02000202 length 26811 samples, lengthbytes 5248
+[LOG] SystemI::createSample                    : channels = 1
+[LOG] SystemI::createSample                    : output = 0x125cd1da8
+[LOG] OutputSoftware::createSample             : lengthpcm 26811, lengthbytes 5248, channels 1, format 2, freq 48000, mode 0200020a
+[LOG] SystemI::createSoundInternal             : No name found in file, use filename.
+[LOG] SystemI::createSoundInternal             : done.  OpenState now = FMOD_OPENSTATE_READY.
+
+[LOG] SystemI::mixerSuspend                    : Suspending output.
+[LOG] SystemI::mixerResume                     : Resuming output.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] SystemI::close                           : 
+[LOG] SystemI::close                           : Stop all sounds
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] SystemI::close                           : Stream thread destroyed
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Free master channel group.
+[LOG] SystemI::close                           : Remove 'master' sound group.
+[LOG] SystemI::close                           : Free software output.
+[LOG] SystemI::close                           : Free emulated output.
+[LOG] SystemI::close                           : Free channel pool.
+[LOG] SystemI::close                           : done.
+
+[LOG] SoundI::release                          :  (0x14cf217c8)
+[LOG] SoundI::release                          : release subsounds. (0x14cf217c8)
+[LOG] SoundI::release                          :     329602__inspectorj__footsteps-puddles-b.3 (0x14cf21938)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf217c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x14cf1fdf8)
+[LOG] SoundI::release                          : release subsounds. (0x14cf1fdf8)
+[LOG] SoundI::release                          :     329602__inspectorj__footsteps-puddles-b.7 (0x14cf1ff68)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf1fdf8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x14cf20698)
+[LOG] SoundI::release                          : release subsounds. (0x14cf20698)
+[LOG] SoundI::release                          :     329602__inspectorj__footsteps-puddles-b.11 (0x14cf20808)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf20698)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x14cf21318)
+[LOG] SoundI::release                          : release subsounds. (0x14cf21318)
+[LOG] SoundI::release                          :     329602__inspectorj__footsteps-puddles-b.15 (0x14cf21488)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf21318)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x14cf227c8)
+[LOG] SoundI::release                          : release subsounds. (0x14cf227c8)
+[LOG] SoundI::release                          :     338265__inspectorj__footsteps-ice-a.3 (0x14cf22938)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf227c8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x14cf22f68)
+[LOG] SoundI::release                          : release subsounds. (0x14cf22f68)
+[LOG] SoundI::release                          :     338265__inspectorj__footsteps-ice-a.7 (0x14cf232d8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf22f68)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x14cf22398)
+[LOG] SoundI::release                          : release subsounds. (0x14cf22398)
+[LOG] SoundI::release                          :     338265__inspectorj__footsteps-ice-a.12 (0x14cf20fd8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf22398)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x14cf23c88)
+[LOG] SoundI::release                          : release subsounds. (0x14cf23c88)
+[LOG] SoundI::release                          :     338265__inspectorj__footsteps-ice-a.15 (0x14cf23df8)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x14cf23c88)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          :  (0x12090c6e8)
+[LOG] SoundI::release                          : release subsounds. (0x12090c6e8)
+[LOG] SoundI::release                          :     145242__nathanaelj83__water-step (0x14ce31e08)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (0x12090c6e8)
+[LOG] SoundI::release                          : done
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] LiveUpdate::clientDisconnected           : client = 0x136de5e08
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] SystemI::close                           : 
+[LOG] SystemI::close                           : Stop all sounds
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] SystemI::close                           : Stream thread destroyed
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Free master channel group.
+[LOG] SystemI::close                           : Remove 'master' sound group.
+[LOG] SystemI::close                           : Free software output.
+[LOG] SystemI::close                           : Free emulated output.
+[LOG] SystemI::close                           : Free channel pool.
+[LOG] SystemI::close                           : done.
+
 [LOG] System::create                           : Header version = 1.09.06. Current version = 1.09.06.
