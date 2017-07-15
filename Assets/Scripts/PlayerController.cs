@@ -67,7 +67,8 @@ public class PlayerController : MonoBehaviour {
         Vector3 rightMovement = right * moveSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
         Vector3 upMovement = forward * moveSpeed * Time.deltaTime *v;
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-        transform.forward = heading;
+        if(heading != Vector3.zero) //Only change when moving
+            transform.forward = heading;
 
         movement = rightMovement + upMovement;  
         movement = movement.normalized * moveSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
