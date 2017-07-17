@@ -13,17 +13,23 @@ public class DamagePlayer : MonoBehaviour {
     public float timeInside;           // Time that player must be in contact to get hit again
 
     private float nextHit;             //Store global time to get hit
+    private Animator animator;         //Thi object animator
 
     private void Start()
     {
         nextHit = timeInside;
+        animator = GetComponent<Animator>();
     }
 
     //Called when player enters to collider
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Checks if collides with the player          
+        if (other.CompareTag("Player")) // Checks if collides with the player      
+        {
             other.GetComponent<PlayerController>().Hit(playerDamage); // Callsd hit function in Player Controlelr script
+            if (animator != null)
+                animator.SetTrigger("PlayerInRange");
+        }
     }
 
     //Called when player stays in the collider
@@ -33,6 +39,8 @@ public class DamagePlayer : MonoBehaviour {
         {
             nextHit = Time.time + timeInside;
             other.GetComponent<PlayerController>().Hit(playerDamage); // Calls hit function in Player Controlelr script
+            if (animator != null)
+                animator.SetTrigger("PlayerInRange");
         }
     }
 
