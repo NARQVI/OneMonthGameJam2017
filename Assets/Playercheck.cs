@@ -11,7 +11,7 @@ public class Playercheck : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-        player.GetComponent<PlayerController>().enabled = true;
+        player.GetComponent<PlayerController>().enabled = true; // se asegura que el control del pj siempre este activo
         
 	}
 }

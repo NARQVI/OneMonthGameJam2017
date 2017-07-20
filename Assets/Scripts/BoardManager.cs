@@ -10,9 +10,10 @@ public class BoardManager : MonoBehaviour {
 	public GameObject towers;
 	public GameObject healStatue;
 	public GameObject anfora;
-
-	//Carga la escena dependiendo del nivel
-	public void SetupScene(int level)
+    public GameObject enemy;
+    public GameObject civilian;
+    //Carga la escena dependiendo del nivel
+    public void SetupScene(int level)
 	{
 		var basicLayoutIns=Instantiate (basicLayout,basicLayout.transform.position,Quaternion.identity);
 
@@ -26,5 +27,11 @@ public class BoardManager : MonoBehaviour {
 			Instantiate (towers,new Vector3(2.3f,-3.6f,0f),Quaternion.identity,basicLayoutIns.transform);
 			Instantiate (healStatue,basicLayoutIns.transform,false);
 		}
-	}
+        if (level == 3)
+        {
+            Instantiate(civilian, basicLayoutIns.transform, false);
+            Instantiate(enemy, new Vector3(2.3f, 0, 0f), Quaternion.identity, basicLayoutIns.transform);
+           
+        }
+    }
 }
