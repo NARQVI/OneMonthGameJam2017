@@ -11,14 +11,14 @@ using UnityEngine.UI;
 public class PlayerController : MonoBehaviour {
 
     [SerializeField]
-    public float life = 100f;           //Models the players life
-    public Text lifeText;               //Text with player life
     public float moveSpeed = 15f;       //Object movement speed 
+	public float restartDelayTime = 2f; //Tiempo de retardo para reiniciar la escena
 
     Vector3 forward, right;
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
     Vector3 movement;
+	float life;           //Models the players life
 
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
@@ -34,11 +34,11 @@ public class PlayerController : MonoBehaviour {
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
 
-        lifeText.text = "Life: " + life;
 
         rb = GetComponent<Rigidbody>();     //Gets rigid body component
         animator = GetComponent<Animator>(); //Gets animator component
 
+		life = GameManager.instance.playerLife;
 
 		/* Initialization for Audio Events */
 		PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
@@ -106,18 +106,30 @@ public class PlayerController : MonoBehaviour {
         life -= hit;
         if (life <= 0f)
         {
-            lifeText.text = "Dead";
-            Invoke("GameOver", 2f); // Calls GameOver function after 2seconds
+			GameManager.instance.GameOver (); // Calls GameOver function after 2seconds
         }
-        else
-            lifeText.text = "Life: " + life;
-
     }
 
 
-    //Restart the game
-    void GameOver()
+    //Carga la última escena
+    void Restart()
     {
-        SceneManager.LoadScene(0);
+        SceneManager.LoadScene(1);
     }
+
+	//Se llama cuando se reinicia la escena
+	private void OnDisable()
+	{
+		GameManager.instance.playerLife = life;
+	}
+
+	//Se llama cuando el jugador se queda dentro de una colision
+	void OnTriggerEnter(Collider other)
+	{
+		if (other.CompareTag ("Exit")) 
+		{
+			Invoke ("Restart", restartDelayTime);
+		}
+	}
+
 }
