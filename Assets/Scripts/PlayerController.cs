@@ -13,12 +13,15 @@ public class PlayerController : MonoBehaviour {
     [SerializeField]
     public float moveSpeed = 15f;       //Object movement speed 
 	public float restartDelayTime = 2f; //Tiempo de retardo para reiniciar la escena
+	public Text lifeText;
+	public float timeToHeal = 1f;
 
     Vector3 forward, right;
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
     Vector3 movement;
 	float life;           //Models the players life
+	float nextHeal;
 
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
@@ -39,6 +42,7 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>(); //Gets animator component
 
 		life = GameManager.instance.playerLife;
+		lifeText.text = "Vida: " + life;
 
 		/* Initialization for Audio Events */
 		PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
@@ -104,6 +108,7 @@ public class PlayerController : MonoBehaviour {
     public void Hit(float hit)
     {
         life -= hit;
+		lifeText.text = "Vida: " + life;
         if (life <= 0f)
         {
 			GameManager.instance.GameOver (); // Calls GameOver function after 2seconds
@@ -130,6 +135,31 @@ public class PlayerController : MonoBehaviour {
 		{
 			Invoke ("Restart", restartDelayTime);
 		}
+
+		if (other.CompareTag ("Heal"))  //Activa cuando el jugador entra en la estatua de curacion
+			Heal();
+		
+		nextHeal = Time.time + timeToHeal;
+
+	}
+
+	void OnTriggerStay(Collider other)
+	{
+		if (other.CompareTag ("Heal") && Time.time > nextHeal) { //Activa cuando el jugador entra en la estatua de curacion
+			Heal();
+			nextHeal = Time.time + timeToHeal;
+		}
+	}
+
+	//Cura al jugador a una tasa de 10% de la vida actual
+	void Heal()
+	{
+		float increment = life + life * 0.1f;
+		if (increment > 100)
+			life = 100;
+		else
+			life = increment;
+		lifeText.text = "Vida: " + life;
 	}
 
 }

@@ -24,19 +24,21 @@ public class DamagePlayer : MonoBehaviour {
     //Called when player enters to collider
     private void OnTriggerEnter(Collider other)
     {
-        if (other.CompareTag("Player")) // Checks if collides with the player      
-        {
+        if (other is SphereCollider && other.CompareTag("Player")) // Checks if collides with the player      
+		{					
             other.GetComponent<PlayerController>().Hit(playerDamage); // Callsd hit function in Player Controlelr script
             if (animator != null)
                 animator.SetTrigger("PlayerInRange");
         }
+		nextHit = Time.time+timeInside;
     }
 
     //Called when player stays in the collider
     private void OnTriggerStay(Collider other)
     {
-        if (other.CompareTag("Player") && Time.time > nextHit) // Checks if collides with the player          
-        {
+		
+		if (other is SphereCollider && other.CompareTag("Player") && Time.time > nextHit) // Checks if collides with the player          
+		{
             nextHit = Time.time + timeInside;
             other.GetComponent<PlayerController>().Hit(playerDamage); // Calls hit function in Player Controlelr script
             if (animator != null)

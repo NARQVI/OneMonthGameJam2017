@@ -11,7 +11,6 @@ public class GameManager : MonoBehaviour {
 	public float playerLife = 100;
 
 	private BoardManager boardScript;
-	private Text playerLifeText;
 	void Awake()
 	{
 		if (instance == null)	//Revisa que no se haya instanciado el objeto
@@ -34,8 +33,6 @@ public class GameManager : MonoBehaviour {
 	{
 		Debug.Log (level);
 		boardScript.SetupScene (level);
-		playerLifeText = GameObject.Find ("PlayerLifeText").GetComponent<Text> ();
-		playerLifeText.text = "Vida: " + playerLife;
 
 	}
 
