@@ -8,11 +8,12 @@ using UnityEngine;
 public class AttackInRange : MonoBehaviour {
 
     public  float attackDistance = 10f; //Max distance for object to attack
-    public Transform player;            //Player's transform (Object to attack)
+   
     public float time;                 // tiempo de que toma a la estatua atacar
 
     public float attackTime;          //timer que se activa caundo el jugador entra en la zona de ataque
     private bool atacar;              // boolean que indica si la estatua debe atacar
+	private Transform player;            //Player's transform (Object to attack)
   
     private Transform collider;       //tranform del child que tiene el collider de ataque
     Animator animator;                  //This object animator
@@ -20,8 +21,8 @@ public class AttackInRange : MonoBehaviour {
 	void Start () {
         animator = GetComponent<Animator>();
         atacar = false;
-       
-         collider = transform.Find("Circle_001");
+		player = GameObject.FindGameObjectWithTag ("Player").transform; //Encuentra al objeto con la etiqueta dada
+        collider = transform.Find("Circle_001");
     }
 	
 	// Update is called once per frame
