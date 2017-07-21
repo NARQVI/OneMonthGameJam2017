@@ -29,7 +29,7 @@ public class BoardManager : MonoBehaviour {
 		}
         if (level == 3)
         {
-            Instantiate(civilian, basicLayoutIns.transform, false);
+            Instantiate(civilian, new Vector3(5f, -3f, 3f), Quaternion.identity, basicLayoutIns.transform);
             Instantiate(enemy, new Vector3(2.3f, 0, 0f), Quaternion.identity, basicLayoutIns.transform);
            
         }
