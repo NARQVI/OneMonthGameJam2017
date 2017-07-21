@@ -55,12 +55,15 @@
      <Compile Include="Assets\EspadaSound.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Audio\FmodGvrAudio.cs" />
      <Compile Include="Assets\GoogleVR\Scripts\Audio\FmodGvrAudioRoom.cs" />
+     <Compile Include="Assets\Playercheck.cs" />
      <Compile Include="Assets\Scripts\AttackInRange.cs" />
      <Compile Include="Assets\Scripts\BoardManager.cs" />
+     <Compile Include="Assets\Scripts\chaser.cs" />
      <Compile Include="Assets\Scripts\DamagePlayer.cs" />
      <Compile Include="Assets\Scripts\GameManager.cs" />
      <Compile Include="Assets\Scripts\Loader.cs" />
      <Compile Include="Assets\Scripts\MoveBullet.cs" />
+     <Compile Include="Assets\Scripts\perseguirAI.cs" />
      <Compile Include="Assets\Scripts\PlayerController.cs" />
      <Compile Include="Assets\Scripts\shatterOnCollision.cs" />
      <Compile Include="Assets\Scripts\SurfaceController.cs" />
@@ -69,6 +72,9 @@
      <None Include="Assets\BrokenVector\LowPolyShaders\README.txt" />
      <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
      <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />
+ <Reference Include="Facebook.Unity.Settings">
+ <HintPath>C:/Users/Juan Useche/Documents/GitHub/Narqvi/OneMonthGameJam2017/Library/FacebookSDK/Facebook.Unity.Settings.dll</HintPath>
+ </Reference>
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
