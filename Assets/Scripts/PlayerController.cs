@@ -29,7 +29,7 @@ public class PlayerController : MonoBehaviour {
 	public string PlayerMoveEvent; // Event Player Move 
 
     // Use this for initialization
-    void Awake()
+    void Start()
     {
         
         forward = Camera.main.transform.forward;
