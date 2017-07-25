@@ -48,4 +48,9 @@ public class GameManager : MonoBehaviour {
 		level++; 	
 		InitGame ();
 	}
+
+	public float darNivel(){
+
+		return level;
+	}
 }
