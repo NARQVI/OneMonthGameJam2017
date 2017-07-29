@@ -5,19 +5,36 @@ using UnityEngine;
 public class MusicController : MonoBehaviour {
 
 
-	public GameObject gameManager; // Prefab de GameManager
+	public static MusicController instance = null;
 
 	[FMODUnity.EventRef]
 	public string music = "event:/Music/Music"; // Ref al evento de la música
 
 	FMOD.Studio.EventInstance musicEv; // Instancia del evento de la música
 
+
+	private void Awake() {
+
+
+		if (instance == null)	//Revisa que no se haya instanciado el objeto
+			instance = this;	//Asigna la instancia
+
+		else if (instance != this)	//Destruye el objeto si está instanciado 
+			Destroy (gameObject);	//con otro objeto
+
+		//No se destruye el cargar la escena
+		DontDestroyOnLoad (gameObject);
+
+
+	}
+
 	// Use this for initialization
 	void Start () {
-		//gameManager = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>(); //Gets reference
+
 
 		musicEv = FMODUnity.RuntimeManager.CreateInstance (music);
 
+	
 		musicEv.start ();
 	}
 

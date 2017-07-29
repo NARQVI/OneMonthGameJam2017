@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <objects serializationModel="Studio.01.09.00">
     <object class="Event" id="{eec6b3dd-7be7-4f1a-b8c2-645cb6173025}">
+        <relationship name="selectables">
+            <destination>{ea00070e-d8f1-44a9-ae14-278fe53e4a71}</destination>
+        </relationship>
         <relationship name="uiLastParameterSelection">
             <destination>{b175b6d9-6d8a-4d1c-978b-8c9b222af284}</destination>
         </relationship>
@@ -8,6 +11,7 @@
     <object class="MasterTrack" id="{fce13779-1f51-4804-9d3b-6fb061221dd5}"/>
     <object class="MixerInput" id="{565f2950-2827-4c91-8ab3-f5d35111b6e5}"/>
     <object class="EventAutomatableProperties" id="{e097c163-6d81-4bd3-8bfd-e75589c20021}"/>
+    <object class="MarkerTrack" id="{8ec2d905-2aa5-413a-a662-deec8d42081a}"/>
     <object class="MarkerTrack" id="{68366060-30b1-4c52-b4ef-a5e0b24ec311}"/>
     <object class="MarkerTrack" id="{87a5bb9c-d0c7-43cf-a5c4-17abec876f6b}"/>
     <object class="GroupTrack" id="{64eb11c5-6005-45cb-aeaa-dac1a4896d51}"/>
@@ -22,15 +26,15 @@
     </object>
     <object class="Timeline" id="{b175b6d9-6d8a-4d1c-978b-8c9b222af284}">
         <property name="cursorPosition">
-            <value>0</value>
+            <value>223.4498053932104</value>
         </property>
         <property name="uiLastRulerScaleRatio">
-            <value>0.11995184076475357</value>
+            <value>0.1334052487751895</value>
         </property>
     </object>
     <object class="GameParameter" id="{108e423d-8a82-4eb3-a45c-aec72f9c1220}">
         <property name="cursorPosition">
-            <value>0.020000001415610313</value>
+            <value>0</value>
         </property>
         <property name="uiLastRulerScaleRatio">
             <value>0.00055617352614015572</value>
@@ -38,7 +42,7 @@
     </object>
     <object class="GameParameter" id="{86b49bd1-d87f-4764-8c52-a30b1433f0dc}">
         <property name="cursorPosition">
-            <value>0</value>
+            <value>1</value>
         </property>
         <property name="uiLastRulerScaleRatio">
             <value>0.00055617352614015572</value>
@@ -99,7 +103,6 @@
     <object class="ParameterCondition" id="{2f066431-ad46-4716-9ee6-e6a7cc366d7b}"/>
     <object class="ParameterCondition" id="{5d8fd944-d837-42bf-a2cd-ede9944cbe00}"/>
     <object class="MixerBusFader" id="{b0f82341-d670-44d0-bf0e-99a4391072a0}"/>
-    <object class="SpatialiserEffect" id="{bd00d4f9-e9e2-4f46-8aed-bd43351fd028}"/>
     <object class="MixerBusFader" id="{40a177e6-09e9-4b44-8084-71fd92176d03}"/>
     <object class="MixerBusFader" id="{4ace4ac5-a7aa-47d5-85c3-1211f1381cc1}"/>
     <object class="MixerBusFader" id="{a6d2b0a9-aaf3-4590-af68-b3744e6db01d}"/>
