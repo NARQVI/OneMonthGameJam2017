@@ -20,7 +20,7 @@ public class PlayerController : MonoBehaviour {
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
     Vector3 movement;
-	float life;           //Models the players life
+	int life;           //Models the players life
 	float nextHeal;
 
 	/* Atributos de Audio */
@@ -105,7 +105,7 @@ public class PlayerController : MonoBehaviour {
     }
 
     //Makes the calculation for a hit to the player given for an enemy
-    public void Hit(float hit)
+    public void Hit(int hit)
     {
         life -= hit;
 		lifeText.text = "Vida: " + life;
@@ -119,7 +119,7 @@ public class PlayerController : MonoBehaviour {
     //Carga la última escena
     void Restart()
     {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(0);
     }
 
 	//Se llama cuando se reinicia la escena
@@ -154,7 +154,7 @@ public class PlayerController : MonoBehaviour {
 	//Cura al jugador a una tasa de 10% de la vida actual
 	void Heal()
 	{
-		float increment = life + life * 0.1f;
+		int increment = Mathf.RoundToInt(life + life * 0.1f);
 		if (increment > 100)
 			life = 100;
 		else
