@@ -19,9 +19,11 @@ public class BoardManager : MonoBehaviour {
 		musicSystem = MusicController.instance;
 
 		var basicLayoutIns=Instantiate (basicLayout,basicLayout.transform.position,Quaternion.identity);
-
-		//Carga los objetos para el nivel 1
-		if (level == 1)
+        Instantiate(spikes, basicLayoutIns.transform, false);
+        Instantiate(towers, new Vector3(2.3f, -3.6f, 0f), Quaternion.identity, basicLayoutIns.transform);
+        Instantiate(healStatue, basicLayoutIns.transform, false);
+        //Carga los objetos para el nivel 1
+        if (level == 1)
 			Instantiate (anfora,basicLayoutIns.transform,false);
 
 		//Carga los objetos para el nivel 2
