@@ -3,7 +3,7 @@ guid: 7013178877ffff942a4716b52bce002c
 timeCreated: 1500179467
 licenseType: Free
 ModelImporter:
-  serializedVersion: 19
+  serializedVersion: 21
   fileIDToRecycleName:
     100000: //RootNode
     100002: Muro2_Bake
@@ -15,6 +15,10 @@ ModelImporter:
     100014: Plano_bake
     100016: Plane
     100018: Plano_terreno_bake_001
+    100020: Cube
+    100022: Cube_001
+    100024: Cube_002
+    100026: Cube_004
     400000: //RootNode
     400002: Muro2_Bake
     400004: Muro_1_Bake
@@ -25,6 +29,10 @@ ModelImporter:
     400014: Plano_bake
     400016: Plane
     400018: Plano_terreno_bake_001
+    400020: Cube
+    400022: Cube_001
+    400024: Cube_002
+    400026: Cube_004
     2300000: Muro2_Bake
     2300002: Muro_1_Bake
     2300004: Muro_3_Bake
@@ -34,6 +42,10 @@ ModelImporter:
     2300012: Plano_bake
     2300014: Plane
     2300016: Plano_terreno_bake_001
+    2300018: Cube
+    2300020: Cube_001
+    2300022: Cube_002
+    2300024: Cube_004
     3300000: Muro2_Bake
     3300002: Muro_1_Bake
     3300004: Muro_3_Bake
@@ -43,6 +55,10 @@ ModelImporter:
     3300012: Plano_bake
     3300014: Plane
     3300016: Plano_terreno_bake_001
+    3300018: Cube
+    3300020: Cube_001
+    3300022: Cube_002
+    3300024: Cube_004
     4300000: Muro_1_Bake
     4300002: Muro2_Bake
     4300004: Muro_3_Bake
@@ -52,6 +68,10 @@ ModelImporter:
     4300012: Plano_bake
     4300014: Plane
     4300016: Plano_terreno_bake_001
+    4300018: Cube
+    4300020: Cube_001
+    4300022: Cube_002
+    4300024: Cube_004
     7400000: Default Take
     9500000: //RootNode
   materials:
@@ -76,6 +96,7 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
+    extraUserProperties: []
     clipAnimations: []
     isReadable: 1
   meshes:
@@ -83,7 +104,10 @@ ModelImporter:
     globalScale: 1
     meshCompression: 0
     addColliders: 0
+    importVisibility: 0
     importBlendShapes: 1
+    importCameras: 0
+    importLights: 0
     swapUVChannels: 0
     generateSecondaryUV: 0
     useFileUnits: 1
@@ -99,6 +123,7 @@ ModelImporter:
     normalSmoothAngle: 60
     normalImportMode: 0
     tangentImportMode: 3
+    normalCalculationMode: 0
   importAnimation: 1
   copyAvatar: 0
   humanDescription:

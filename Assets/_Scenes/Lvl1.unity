@@ -38,12 +38,12 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 4714926}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0068644006, g: 0.0063347705, b: 0.0042813197, a: 1}
 --- !u!157 &3
 LightmapSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 11
-  m_GIWorkflowMode: 1
+  m_GIWorkflowMode: 0
   m_GISettings:
     serializedVersion: 2
     m_BounceScale: 1
@@ -86,7 +86,7 @@ LightmapSettings:
     m_PVRFilteringAtrousColorSigma: 1
     m_PVRFilteringAtrousNormalSigma: 1
     m_PVRFilteringAtrousPositionSigma: 1
-  m_LightingDataAsset: {fileID: 112000002, guid: 0404d775a51cd44698247443a57f1500,
+  m_LightingDataAsset: {fileID: 112000016, guid: 0404d775a51cd44698247443a57f1500,
     type: 2}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -1195,6 +1195,24 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &2020321527 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1953899371750892, guid: 740dab49c0b37224a8476d6ec9dd55a6,
+    type: 2}
+  m_PrefabInternal: {fileID: 1113287867}
+--- !u!114 &2020321535
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2020321527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7553478d9e8ad8e4d8c71cd11c831e90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ParticlePrefab: {fileID: 198051186151804294, guid: 206193e1f3b2f274099bed798a791e7c,
+    type: 2}
 --- !u!1 &2113717746
 GameObject:
   m_ObjectHideFlags: 0
