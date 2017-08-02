@@ -41,6 +41,7 @@ GameObject:
   - component: {fileID: 198542203298859360}
   - component: {fileID: 199200864622905110}
   - component: {fileID: 65786173110013672}
+  - component: {fileID: 114622432554255052}
   m_Layer: 0
   m_Name: COLUMNA_TEXTURA
   m_TagString: Heal
@@ -199,6 +200,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114622432554255052
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1658990853421658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 346f7d630a6d7654e96b62c407046cd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!198 &198051186151804294
 ParticleSystem:
   m_ObjectHideFlags: 1
@@ -3526,7 +3538,7 @@ ParticleSystem:
   moveWithTransform: 0
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
-  randomSeed: -1770539926
+  randomSeed: 5669305
   InitialModule:
     serializedVersion: 3
     enabled: 1
@@ -4081,7 +4093,7 @@ ParticleSystem:
           m_PostInfinity: 2
           m_RotationOrder: 4
   EmissionModule:
-    enabled: 1
+    enabled: 0
     serializedVersion: 4
     rateOverTime:
       serializedVersion: 2

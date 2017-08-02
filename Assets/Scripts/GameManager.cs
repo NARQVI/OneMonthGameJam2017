@@ -38,6 +38,10 @@ public class GameManager : MonoBehaviour {
 
 	}
 
+	public void NextLevel()
+	{
+		SceneManager.LoadScene(0);
+	}
 
 	public void GameOver()
 	{

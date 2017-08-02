@@ -14,6 +14,7 @@ public class chaser : MonoBehaviour {
     public bool attack = false;
     [SerializeField] private Collider[] Cchase;
     [SerializeField] private Collider[] Cattack;
+
     private Transform trans;
     private Animator anim;
     public float dis;
@@ -24,6 +25,7 @@ public class chaser : MonoBehaviour {
         anim = GetComponent<Animator>();
         trans = GetComponent<Transform>();
         player = GameObject.Find("Player");
+       
     }
 
     // Update is called once per frame
@@ -38,10 +40,12 @@ public class chaser : MonoBehaviour {
             trans.position += trans.forward * Time.deltaTime * 2;
             chase = true;
             anim.SetBool("run", true);
+
             dis = Vector3.Distance(trans.position, player.transform.position);
             if (dis<=2)
             {
                 anim.SetBool("run", false);
+                
                 StartCoroutine(attime());
             }
 
@@ -67,8 +71,8 @@ public class chaser : MonoBehaviour {
             attack = true;
             yield return new WaitForSeconds(5f);
             anim.SetBool("attack", false);
-         
-            attack = false;
+     
+        attack = false;
         
    
       
