@@ -41,12 +41,15 @@ public class MusicController : MonoBehaviour {
 	public void mundo(){
 
 		musicEv.setParameterValue ("Mundo", 1f);
+		musicEv.setParameterValue ("lvl2", 0f);
 	}
 
 	public void lvl2(){
 
 		musicEv.setParameterValue ("lvl2", 1f);
+		musicEv.setParameterValue ("Mundo", 0f);
 	}
+
 
 	// Update is called once per frame
 	void Update () {

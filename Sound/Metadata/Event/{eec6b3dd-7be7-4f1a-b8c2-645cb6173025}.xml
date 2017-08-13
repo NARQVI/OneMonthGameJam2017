@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.01.09.00">
     <object class="Event" id="{eec6b3dd-7be7-4f1a-b8c2-645cb6173025}">
         <property name="name">
-            <value>Music</value>
+            <value>Music2</value>
         </property>
         <property name="outputFormat">
             <value>1</value>
@@ -437,34 +437,34 @@
         <property name="position">
             <value>63.999999999999993</value>
         </property>
-        <relationship name="destination">
-            <destination>{0d75d5a8-6af4-42e1-9ffb-2049be4b357e}</destination>
-        </relationship>
-        <relationship name="triggerConditions">
-            <destination>{fd5d955f-5eb8-4221-a994-3a7885903bba}</destination>
-        </relationship>
         <relationship name="timeline">
             <destination>{b175b6d9-6d8a-4d1c-978b-8c9b222af284}</destination>
         </relationship>
         <relationship name="markerTrack">
             <destination>{68366060-30b1-4c52-b4ef-a5e0b24ec311}</destination>
         </relationship>
+        <relationship name="triggerConditions">
+            <destination>{fd5d955f-5eb8-4221-a994-3a7885903bba}</destination>
+        </relationship>
+        <relationship name="destination">
+            <destination>{0d75d5a8-6af4-42e1-9ffb-2049be4b357e}</destination>
+        </relationship>
     </object>
     <object class="TransitionMarker" id="{d72f68fd-fab2-4f4b-92e7-7a73f0206bf6}">
         <property name="position">
             <value>70</value>
         </property>
-        <relationship name="destination">
-            <destination>{e00bff83-56f8-40d7-841d-91849951f1d9}</destination>
-        </relationship>
-        <relationship name="triggerConditions">
-            <destination>{2f066431-ad46-4716-9ee6-e6a7cc366d7b}</destination>
-        </relationship>
         <relationship name="timeline">
             <destination>{b175b6d9-6d8a-4d1c-978b-8c9b222af284}</destination>
         </relationship>
         <relationship name="markerTrack">
             <destination>{87a5bb9c-d0c7-43cf-a5c4-17abec876f6b}</destination>
+        </relationship>
+        <relationship name="triggerConditions">
+            <destination>{2f066431-ad46-4716-9ee6-e6a7cc366d7b}</destination>
+        </relationship>
+        <relationship name="destination">
+            <destination>{e00bff83-56f8-40d7-841d-91849951f1d9}</destination>
         </relationship>
     </object>
     <object class="TransitionRegion" id="{ea00070e-d8f1-44a9-ae14-278fe53e4a71}">
@@ -477,9 +477,6 @@
         <property name="quantizationInterval">
             <value>1</value>
         </property>
-        <relationship name="destination">
-            <destination>{0d75d5a8-6af4-42e1-9ffb-2049be4b357e}</destination>
-        </relationship>
         <relationship name="timeline">
             <destination>{b175b6d9-6d8a-4d1c-978b-8c9b222af284}</destination>
         </relationship>
@@ -488,6 +485,9 @@
         </relationship>
         <relationship name="triggerConditions">
             <destination>{5d8fd944-d837-42bf-a2cd-ede9944cbe00}</destination>
+        </relationship>
+        <relationship name="destination">
+            <destination>{0d75d5a8-6af4-42e1-9ffb-2049be4b357e}</destination>
         </relationship>
     </object>
     <object class="AutomationCurve" id="{c3f54a80-1b6e-41ba-9570-c9a4ed8fc286}">
