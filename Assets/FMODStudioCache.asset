@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114299749324816250}
-  - {fileID: 114072144452311274}
+  - {fileID: 114209757125602528}
   EditorEvents:
   - {fileID: 114082697137471086}
   - {fileID: 114693331030946652}
@@ -21,9 +21,9 @@ MonoBehaviour:
   - {fileID: 114354383396077888}
   - {fileID: 114181705766351048}
   - {fileID: 114092094640887578}
-  MasterBankRef: {fileID: 114072144452311274}
+  MasterBankRef: {fileID: 114209757125602528}
   StringsBankRef: {fileID: 114299749324816250}
-  stringsBankWriteTime: 636382278705669718
+  stringsBankWriteTime: 636382342359334436
   cacheVersion: 2
 --- !u!114 &114008538978609914
 MonoBehaviour:
@@ -131,7 +131,7 @@ MonoBehaviour:
   Path: event:/Player/Attack
   guid: 19fe2666a5bc89459c506857b47c6d98
   Banks:
-  - {fileID: 114072144452311274}
+  - {fileID: 114209757125602528}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -167,13 +167,13 @@ MonoBehaviour:
   Path: event:/Music/Music2
   guid: ddb3c6eee77b1a4fb8c2645cb6173025
   Banks:
-  - {fileID: 114072144452311274}
+  - {fileID: 114209757125602528}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114393602300137588}
-  - {fileID: 114832021022554050}
+  - {fileID: 114725953180460202}
+  - {fileID: 114921474100289316}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114110134848056460
@@ -407,13 +407,13 @@ MonoBehaviour:
   Path: event:/Music/Music
   guid: bf7b2ce7e0bc0c4e9b210dfad4f38640
   Banks:
-  - {fileID: 114072144452311274}
+  - {fileID: 114209757125602528}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114217180768133802}
-  - {fileID: 114536603291377374}
+  - {fileID: 114914997323123880}
+  - {fileID: 114865939481034876}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114183177621570728
@@ -486,6 +486,25 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114209757125602528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: D:\Narqvi\Prototipos\LowPoly\OneMonthGameJam2017\Sound\Build\Desktop\Master
+    Bank.bank
+  lastModified: 636382342359289395
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 23164992
+  Exists: 1
 --- !u!114 &114213077169655286
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -683,7 +702,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Path: Sound\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636382278705669718
+  lastModified: 636382342359334436
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -864,7 +883,7 @@ MonoBehaviour:
   Path: event:/Objects/Spikes
   guid: 4989163927598746897336c0f0249c3d
   Banks:
-  - {fileID: 114072144452311274}
+  - {fileID: 114209757125602528}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -1003,7 +1022,7 @@ MonoBehaviour:
   Path: event:/Objects/Estatua
   guid: 0f429e9d4f80b145927ccfa42461b745
   Banks:
-  - {fileID: 114072144452311274}
+  - {fileID: 114209757125602528}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1411,12 +1430,12 @@ MonoBehaviour:
   Path: event:/Player/Move
   guid: 7231e88392915443aba590c2298b6302
   Banks:
-  - {fileID: 114072144452311274}
+  - {fileID: 114209757125602528}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114637512142508702}
+  - {fileID: 114823864320187484}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114697191565192524
@@ -1491,6 +1510,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114725953180460202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
   Min: 0
   Max: 1
   Default: 0
@@ -1603,6 +1637,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 42816
   Exists: 0
+--- !u!114 &114823864320187484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114826366964291418
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1693,6 +1742,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114865939481034876
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114870844162146796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1756,6 +1820,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114914997323123880
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114917937403123080
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1772,6 +1851,21 @@ MonoBehaviour:
   Max: 1
   Default: 0
 --- !u!114 &114919079642761680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114921474100289316
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
