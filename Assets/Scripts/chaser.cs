@@ -42,7 +42,7 @@ public class chaser : MonoBehaviour {
             anim.SetBool("run", true);
 
             dis = Vector3.Distance(trans.position, player.transform.position);
-            if (dis<=2)
+            if (dis<=3)
             {
                 anim.SetBool("run", false);
                 
