@@ -14,13 +14,60 @@
 [LOG] SystemI::init                            : create the stream thread
 [LOG] Thread::initThread                       : Init FMOD stream thread. Priority: 2, Stack Size: 65536, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Priority: 3, Stack Size: 49152, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000000004B301098 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 00000000490F1EC8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] PlaybackSystem::init                     : done
 [LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Priority: 0, Stack Size: 65536, Semaphore: No, Sleep Time: 1, Looping: No.
 [LOG] Manager::init                            : done.
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
+[LOG] SoundI::release                          : Percnoclick (00000000147FE3F8)
+[LOG] SoundI::release                          : remove stream samples. (00000000147FE3F8)
+[LOG] SoundI::release                          :     Percnoclick (0000000048D60308)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release subsounds. (00000000147FE3F8)
+[LOG] SoundI::release                          :     Percnoclick (00000000147FE098)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (00000000147FE3F8)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          : Melnoclick (00000000147FBB78)
+[LOG] SoundI::release                          : remove stream samples. (00000000147FBB78)
+[LOG] SoundI::release                          :     Melnoclick (0000000048D60B28)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release subsounds. (00000000147FBB78)
+[LOG] SoundI::release                          :     Melnoclick (00000000147FD318)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (00000000147FBB78)
+[LOG] SoundI::release                          : done
+[LOG] SoundI::release                          : Armnoclick (00000000147FF4D8)
+[LOG] SoundI::release                          : remove stream samples. (00000000147FF4D8)
+[LOG] SoundI::release                          :     Armnoclick (0000000048D61688)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release subsounds. (00000000147FF4D8)
+[LOG] SoundI::release                          :     Armnoclick (0000000014800258)
+[LOG] SoundI::release                          :     done
+[LOG] SoundI::release                          : release codec. (00000000147FF4D8)
+[LOG] SoundI::release                          : done
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] SystemI::close                           : 
+[LOG] SystemI::close                           : Stop all sounds
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] SystemI::close                           : Stream thread destroyed
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] SystemI::close                           : Free master channel group.
+[LOG] SystemI::close                           : Remove 'master' sound group.
+[LOG] SystemI::close                           : Free software output.
+[LOG] SystemI::close                           : Free emulated output.
+[LOG] SystemI::close                           : Free channel pool.
+[LOG] SystemI::close                           : done.
+
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
 [LOG] Manager::readBank                        : fileversion = 88, compatVersion = 86 (oldest = 44, newest = 88)
@@ -42,6 +89,8 @@
 [LOG] SystemI::close                           : Free software output.
 [LOG] SystemI::close                           : Free emulated output.
 [LOG] SystemI::close                           : Free channel pool.
+[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
+[LOG] Thread::callback                         : FMOD file thread finished.
 [LOG] SystemI::close                           : done.
 
 [LOG] System::create                           : Header version = 1.09.06. Current version = 1.09.06.
