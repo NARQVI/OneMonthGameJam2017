@@ -40,7 +40,6 @@ GameObject:
   - component: {fileID: 95259015854781992}
   - component: {fileID: 198542203298859360}
   - component: {fileID: 199200864622905110}
-  - component: {fileID: 65786173110013672}
   - component: {fileID: 114622432554255052}
   m_Layer: 0
   m_Name: COLUMNA_TEXTURA
@@ -59,7 +58,6 @@ GameObject:
   - component: {fileID: 4911879590793158}
   - component: {fileID: 198051186151804294}
   - component: {fileID: 199848978623949864}
-  - component: {fileID: 65042604084648352}
   m_Layer: 0
   m_Name: Particle System
   m_TagString: Untagged
@@ -147,18 +145,6 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1658990853421658}
   m_Mesh: {fileID: 4300000, guid: 58365a3fdb944524d8273c4495c2e702, type: 3}
---- !u!65 &65042604084648352
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1754046780877206}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 0.7058961, y: 0.69056654, z: 0.105721235}
-  m_Center: {x: -0.020974716, y: -0.025575755, z: 2.0088562e-14}
 --- !u!65 &65171717926703560
 BoxCollider:
   m_ObjectHideFlags: 1
@@ -170,19 +156,7 @@ BoxCollider:
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 2.3683076, y: 3.1996608, z: 2.5776596}
-  m_Center: {x: -0.17144036, y: 1.0998304, z: 0.45310116}
---- !u!65 &65786173110013672
-BoxCollider:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1658990853421658}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 1.73205, y: 2.0000005, z: 3.4112337}
-  m_Center: {x: 0.020467013, y: 0, z: 1.7056168}
+  m_Center: {x: 0.04, y: 1.68, z: -0.06}
 --- !u!95 &95259015854781992
 Animator:
   serializedVersion: 3
