@@ -8,6 +8,7 @@ public class BossIA : MonoBehaviour {
     public int attackDmg;
     public int bossLife;
     public float attackRange;
+    public bool alive;
     [SerializeField] private bool active;
     [SerializeField] private GameObject player;
     [SerializeField] private float distance;
@@ -21,11 +22,14 @@ public class BossIA : MonoBehaviour {
         player = GameObject.Find("Player");
         trans = GetComponent<Transform>();
         anim = GetComponent<Animator>();
+        alive = true;
+        anim.SetInteger("life", bossLife);
     }
 	
 	// Update is called once per frame
 	void Update () {
-        if (active)
+        
+        if (active && alive)
         {
             distance = Vector3.Distance(trans.position, player.GetComponent<Transform>().position);
             if(distance > attackRange)
@@ -41,21 +45,31 @@ public class BossIA : MonoBehaviour {
             {
                 anim.SetBool("walk", false);
             }
-
-
-
-
-
-
-
-
+            if(bossLife<=0)
+            {
+                alive = false;
+            }
+        }
+        else if(!alive)
+        {
+            anim.SetBool("walk", false);
+            anim.SetBool("death", true);
+            StartCoroutine(destroid());  
         }
 	}
 
 
-
+    public void takeDmg(int dmg)
+    {
+        bossLife -= dmg;
+    }
     public void setActive(bool ss)
     {
         active = ss;
+    }
+    private IEnumerator destroid()
+    {
+        yield return new WaitForSecondsRealtime(5);
+        Destroy(gameObject);
     }
 }
