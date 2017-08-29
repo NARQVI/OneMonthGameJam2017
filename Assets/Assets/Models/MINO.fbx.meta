@@ -223,6 +223,7 @@ ModelImporter:
     7400008: Armature|IDLE
     7400010: Armature|RUN
     7400012: Armature|WALK
+    7400014: Armature|WALK (1)
     9500000: //RootNode
     13700000: CALZONES
     13700002: MINO
@@ -251,17 +252,17 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|ATTACK
-      takeName: Armature|ATTACK
+      name: Armature|WALK (1)
+      takeName: Armature|WALK
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -401,7 +402,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

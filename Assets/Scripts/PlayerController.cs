@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public float restartDelayTime = 1f; //Tiempo de retardo para reiniciar la escena
 	public Text lifeText;
 	public float timeToHeal = 1f;
+	public float runSpeed = 2f;
 
     Vector3 forward, right;
     Rigidbody rb;                       //This object rigid body
@@ -27,7 +28,7 @@ public class PlayerController : MonoBehaviour {
 	[FMODUnity.EventRef]
 	public string PlayerAttackEvent; // Event Player Attack
 	public string PlayerMoveEvent; // Event Player Move 
-
+	private float moveActualSpeed;
     // Use this for initialization
     void Start()
     {
@@ -38,6 +39,7 @@ public class PlayerController : MonoBehaviour {
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
 
+		moveActualSpeed = moveSpeed;
 
         rb = GetComponent<Rigidbody>();     //Gets rigid body component
         animator = GetComponent<Animator>(); //Gets animator component
@@ -63,30 +65,38 @@ public class PlayerController : MonoBehaviour {
     {
         float horizontal = Input.GetAxisRaw("Horizontal");  //Get horizontal input
         float vertical = Input.GetAxisRaw("Vertical");      //Get vertical input
-        Move(horizontal,vertical);  //Calls Move method
+		bool running = Input.GetKey(KeyCode.LeftShift);
+        Move(horizontal,vertical,running);  //Calls Move method
     }
 
     //Moves the player in a given direction
-    void Move(float h, float v)
+	void Move(float h, float v,bool running)
     {
-        Vector3 rightMovement = right * moveSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
-        Vector3 upMovement = forward * moveSpeed * Time.deltaTime *v;
+		if (running) {
+			moveActualSpeed = runSpeed;
+		}
+		else
+			moveActualSpeed = moveSpeed;
+		
+        Vector3 rightMovement = right * moveActualSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
+        Vector3 upMovement = forward * moveActualSpeed * Time.deltaTime *v;
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
         if(heading != Vector3.zero) //Only change when moving
             transform.forward = heading;
 
         movement = rightMovement + upMovement;  
-        movement = movement.normalized * moveSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
+        movement = movement.normalized * moveActualSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
         rb.MovePosition(transform.position+movement);   //Moves the object
         animator.SetFloat("Velocity",Mathf.Abs(Input.GetAxisRaw("Horizontal"))+Mathf.Abs( Input.GetAxisRaw("Vertical"))); //Set the value of "Velocity" in the animator
-	
+		animator.SetBool ("Run",running);
+
 
 		if (h != 0 || v != 0) {
 
 			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(PlayerMoveEvent); // Create a instance of the sound event 
 			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
-			if (moveSpeed == 5)
+			if (moveActualSpeed == 5)
 				e.setParameterValue ("Ice", 1f); // Change the parameter when the player move on ice surface
 			else
 				e.setParameterValue ("Ice", 0f); // Change the parameter when the player move on a diferent surface

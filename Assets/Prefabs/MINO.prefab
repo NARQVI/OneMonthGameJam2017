@@ -49,10 +49,14 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4690968109150124}
+  - component: {fileID: 54142557964903538}
   - component: {fileID: 95966472767282724}
-  m_Layer: 0
+  - component: {fileID: 65384521140827894}
+  - component: {fileID: 135732948262460606}
+  - component: {fileID: 114784871658924312}
+  m_Layer: 9
   m_Name: MINO
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -3041,6 +3045,33 @@ MeshFilter:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1261452899562216}
   m_Mesh: {fileID: 4300000, guid: 9b5ad0c62d9b65e4da842723a0eee527, type: 3}
+--- !u!54 &54142557964903538
+Rigidbody:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010565517347136}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 0
+  m_Interpolate: 1
+  m_Constraints: 112
+  m_CollisionDetection: 0
+--- !u!65 &65384521140827894
+BoxCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010565517347136}
+  m_Material: {fileID: 13400000, guid: 5d3f7377162a9f54c9134269c1d33567, type: 2}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 13, y: 15, z: 10}
+  m_Center: {x: -0.04, y: 12.45, z: -0.4}
 --- !u!95 &95966472767282724
 Animator:
   serializedVersion: 3
@@ -3058,6 +3089,35 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114784871658924312
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010565517347136}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  moveSpeed: 1.5
+  restartDelayTime: 2
+  lifeText: {fileID: 0}
+  timeToHeal: 1
+  PlayerAttackEvent: 
+  PlayerMoveEvent: 
+--- !u!135 &135732948262460606
+SphereCollider:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1010565517347136}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 3.95
+  m_Center: {x: 0, y: 3.92, z: -1.68}
 --- !u!137 &137088348247187414
 SkinnedMeshRenderer:
   m_ObjectHideFlags: 1
