@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour {
     public float moveSpeed = 15f;       //Object movement speed 
 	public float restartDelayTime = 1f; //Tiempo de retardo para reiniciar la escena
 	public Text lifeText;
+	public Text coinsText;
 	public float timeToHeal = 1f;
 	public float runSpeed = 2f;
 
@@ -22,8 +23,10 @@ public class PlayerController : MonoBehaviour {
     Animator animator;                  //this object animator
     Vector3 movement;
 	int life;           //Models the players life
-	float nextHeal;
-	bool onChangeScene;
+	int coins;			//Models the number of coins the player has
+	float nextHeal;		//Timer for counting the time btwn heals
+	bool onChangeScene;	//Boolean for changing scenes
+
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
 	public string PlayerAttackEvent; // Event Player Attack
@@ -46,6 +49,9 @@ public class PlayerController : MonoBehaviour {
 
 		life = GameManager.instance.playerLife;
 		lifeText.text = "Vida: " + life;
+
+		coins = GameManager.instance.playerCoins;
+		coinsText.text = "$" + coins;
 
 		/* Initialization for Audio Events */
 		PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
@@ -137,6 +143,7 @@ public class PlayerController : MonoBehaviour {
 	private void OnDisable()
 	{
 		GameManager.instance.playerLife = life;
+		GameManager.instance.playerCoins = coins;
 	}
 
 	//Se llama cuando el jugador se queda dentro de una colision
@@ -150,7 +157,13 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.CompareTag ("Heal"))  //Activa cuando el jugador entra en la estatua de curacion
 			Heal();
-		
+
+		if (other.CompareTag ("Coin")) 
+		{
+			coins++;
+			coinsText.text = "$" + coins;
+		}
+
 		nextHeal = Time.time + timeToHeal;
 
 	}

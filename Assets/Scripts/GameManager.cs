@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour {
 	public static GameManager instance = null; //Estático para ser llamado por otro script
 	public int level = 1; //Nivel en el que empieza el juego
 	public int playerLife = 100;
+	public int playerCoins = 0;
 	public MusicController musicSystem;
 
 	private BoardManager boardScript;
