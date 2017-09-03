@@ -68,7 +68,7 @@ public class chaser : MonoBehaviour {
             anim.SetBool("run", false);
             anim.SetBool("attack", false);
             anim.SetBool("alive", false);
-             StartCoroutine(destroid());
+            StartCoroutine(destroid());
             
         }
 	}
