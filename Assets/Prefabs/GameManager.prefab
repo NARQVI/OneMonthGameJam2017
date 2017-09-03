@@ -52,13 +52,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae8628296a44de447a68fa3ec706a9a4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  basicLayout: {fileID: 1880142988635702, guid: a5056c6574694d04da5c30a43a43249f,
+  basicLayout: {fileID: 1951187165231810, guid: a5056c6574694d04da5c30a43a43249f,
     type: 2}
   spikes: {fileID: 1798367449951062, guid: a69e902b4f5b2b542a361d368bd61ae8, type: 2}
   towers: {fileID: 1737800201266572, guid: c081951cf8c79604d90ac4bfc701f14a, type: 2}
   healStatue: {fileID: 1568568277656086, guid: 206193e1f3b2f274099bed798a791e7c, type: 2}
   anfora: {fileID: 1941912649126712, guid: 696a0146316a815449f66e59f8319666, type: 2}
-  enemy: {fileID: 1682944978323360, guid: 36d9c9deb763c104ea57712ee57c7585, type: 2}
+  enemy: {fileID: 1612493027909408, guid: 36d9c9deb763c104ea57712ee57c7585, type: 2}
   civilian: {fileID: 1437799465352542, guid: 3e1cacdc3d745de4cab344bd8415a0b0, type: 2}
   musicSystem: {fileID: 0}
 --- !u!114 &114315579547453300
@@ -74,4 +74,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   level: 1
   playerLife: 100
+  playerCoins: 0
   musicSystem: {fileID: 0}

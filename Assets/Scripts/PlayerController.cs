@@ -17,7 +17,7 @@ public class PlayerController : MonoBehaviour {
 	public Text coinsText;
 	public float timeToHeal = 1f;
 	public float runSpeed = 2f;
-
+    public GameObject wepon;
     Vector3 forward, right;
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
@@ -62,8 +62,11 @@ public class PlayerController : MonoBehaviour {
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))    //Check if space key is down
+        {
             Attack();   //Calls attack method
-
+            Debug.LogError("quizasww");
+            wepon.GetComponent<AsteDmg>().attack();
+        }
     }
 
     // Update is called once per frame
@@ -186,5 +189,6 @@ public class PlayerController : MonoBehaviour {
 			life = increment;
 		lifeText.text = "Vida: " + life;
 	}
+    
 
 }
