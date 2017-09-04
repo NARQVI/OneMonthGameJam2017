@@ -15,6 +15,7 @@ public class PlayerController : MonoBehaviour {
 	public float restartDelayTime = 1f; //Tiempo de retardo para reiniciar la escena
 	public Text lifeText;
 	public Text coinsText;
+	public Slider lifeSlider;
 	public float timeToHeal = 1f;
 	public float runSpeed = 2f;
     public GameObject wepon;
@@ -35,6 +36,7 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+
 		onChangeScene = false;
         
         forward = Camera.main.transform.forward;
@@ -48,6 +50,7 @@ public class PlayerController : MonoBehaviour {
         animator = GetComponent<Animator>(); //Gets animator component
 
 		life = GameManager.instance.playerLife;
+		lifeSlider.value = life;
 		lifeText.text = "Vida: " + life;
 
 		coins = GameManager.instance.playerCoins;
@@ -57,6 +60,7 @@ public class PlayerController : MonoBehaviour {
 		PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
 		PlayerMoveEvent = "event:/Player/Move"; // Event Move
 
+		Debug.Log ("Start life: "+life);
     }
 
     private void Update()
@@ -129,6 +133,7 @@ public class PlayerController : MonoBehaviour {
     {
         life -= hit;
 		lifeText.text = "Vida: " + life;
+		lifeSlider.value = life;
         if (life <= 0f)
         {
 			GameManager.instance.GameOver (); // Calls GameOver function after 2seconds
@@ -188,6 +193,7 @@ public class PlayerController : MonoBehaviour {
 		else
 			life = increment;
 		lifeText.text = "Vida: " + life;
+		lifeSlider.value = life;
 	}
     
 
