@@ -203,10 +203,12 @@ public class PlayerController : MonoBehaviour {
 		lifeText.text = "Vida: " + life;
 		lifeSlider.value = life;
 	}
-    
+
+    //mettodo que da un tiempo de recuperacion anters de recivir mas daño
     private IEnumerator recovery()
     {
         recob = true;
+        animator.SetTrigger("Hit");
         yield return new WaitForSecondsRealtime(recoverytime);
         recob = false;
     }

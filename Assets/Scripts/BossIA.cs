@@ -4,14 +4,14 @@ using UnityEngine;
 
 public class BossIA : MonoBehaviour {
 
-    public float speed;
-    public int attackDmg;
-    public int bossLife;
-    public float attackRange;
-    public bool alive;
-    [SerializeField] private bool active;
+    public float speed; //velocidad del boos
+    public int attackDmg; // daño del boss
+    public int bossLife; // vida del boss
+    public float attackRange; // rango de ataque
+    public bool alive; // estado si esta vivo
+    [SerializeField] private bool active; // determina si el boss esta activo
     [SerializeField] private GameObject player;
-    [SerializeField] private float distance;
+    [SerializeField] private float distance; // distancia del boss a un objeto dado
     private Animator anim;
 
 	/* Atributos de Audio */
@@ -40,7 +40,7 @@ public class BossIA : MonoBehaviour {
         
         if (active && alive)
         {
-            distance = Vector3.Distance(trans.position, player.GetComponent<Transform>().position);
+            distance = Vector3.Distance(trans.position, player.GetComponent<Transform>().position); // distanmcia entre el jugador y el boss
             if(distance > attackRange)
             {
 
@@ -54,25 +54,30 @@ public class BossIA : MonoBehaviour {
 			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
             }
+            else if (distance <= attackRange)
+            {
+               float n =Random.Range(-2f, 2f);
+                anim.SetFloat("attack",n);
+            }
             else
             {
                 anim.SetBool("walk", false);
             }
-            if(bossLife<=0)
+   
+            if (bossLife<=0)
             {
                 alive = false;
             }
+          
         }
         else if(!alive)
         {
             anim.SetBool("walk", false);
-            anim.SetBool("death", true);
+          //  anim.SetBool("death", true);
             StartCoroutine(destroid());  
         }
 			
 	}
-
-
     public void takeDmg(int dmg)
     {
         bossLife -= dmg;
@@ -85,5 +90,11 @@ public class BossIA : MonoBehaviour {
     {
         yield return new WaitForSecondsRealtime(5);
         Destroy(gameObject);
+    }
+    private IEnumerator attackdelay(float n)
+    {
+        anim.SetFloat("attack", n);
+        yield return new WaitForSecondsRealtime(1f);
+        anim.SetFloat("attack", 0);
     }
 }

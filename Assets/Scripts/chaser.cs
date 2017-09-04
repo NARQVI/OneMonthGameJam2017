@@ -66,6 +66,7 @@ public class chaser : MonoBehaviour {
             if (dis<=agent.stoppingDistance)
             {
                 anim.SetBool("run", false);
+                
                 StartCoroutine(attime());
             }
 
@@ -91,7 +92,7 @@ public class chaser : MonoBehaviour {
     {
             anim.SetBool("attack", true);
             attack = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2.3f);
             anim.SetBool("attack", false);
      
         attack = false;
