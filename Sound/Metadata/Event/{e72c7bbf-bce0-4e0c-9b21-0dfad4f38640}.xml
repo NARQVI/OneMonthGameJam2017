@@ -175,6 +175,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{fd270b0d-5e7c-48f0-a6a6-87edb6f1aee0}">
+        <property name="volume">
+            <value>-80</value>
+        </property>
         <property name="name">
             <value>Perc</value>
         </property>
@@ -197,6 +200,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{d96b7e3a-aeee-4197-97f9-a5e0de4b7723}">
+        <property name="volume">
+            <value>-80</value>
+        </property>
         <property name="name">
             <value>Arm</value>
         </property>
@@ -219,6 +225,9 @@
         </relationship>
     </object>
     <object class="EventMixerGroup" id="{f09b41e6-1d41-4fc7-9855-447c296820e6}">
+        <property name="volume">
+            <value>-80</value>
+        </property>
         <property name="name">
             <value>Mel</value>
         </property>
@@ -354,11 +363,11 @@
         <relationship name="markerTrack">
             <destination>{558f8d38-47f1-439b-bc8c-9839f33e7b78}</destination>
         </relationship>
-        <relationship name="triggerConditions">
-            <destination>{c829ac8e-ad76-4fe7-a0d3-e381177f67ce}</destination>
-        </relationship>
         <relationship name="destination">
             <destination>{7a003809-5660-4c87-b3d3-1aabac66f347}</destination>
+        </relationship>
+        <relationship name="triggerConditions">
+            <destination>{c829ac8e-ad76-4fe7-a0d3-e381177f67ce}</destination>
         </relationship>
     </object>
     <object class="TransitionMarker" id="{1a5bdaf4-3290-4402-aa6b-8e57063bb3ea}">
@@ -371,11 +380,11 @@
         <relationship name="markerTrack">
             <destination>{558f8d38-47f1-439b-bc8c-9839f33e7b78}</destination>
         </relationship>
-        <relationship name="triggerConditions">
-            <destination>{1e726a7e-daf8-491f-a0ab-d95a51cd3b5e}</destination>
-        </relationship>
         <relationship name="destination">
             <destination>{b2298372-d634-43b5-918d-8e1c520a67be}</destination>
+        </relationship>
+        <relationship name="triggerConditions">
+            <destination>{1e726a7e-daf8-491f-a0ab-d95a51cd3b5e}</destination>
         </relationship>
     </object>
     <object class="TransitionRegion" id="{f7c6915d-4fd0-41e0-9b19-8407ea5107c6}">
@@ -394,11 +403,11 @@
         <relationship name="markerTrack">
             <destination>{48e8d7ea-04ce-4799-8d7b-7f6e1c47196f}</destination>
         </relationship>
-        <relationship name="triggerConditions">
-            <destination>{7fc344bc-276c-4e10-9cfa-739b429225b5}</destination>
-        </relationship>
         <relationship name="destination">
             <destination>{7a003809-5660-4c87-b3d3-1aabac66f347}</destination>
+        </relationship>
+        <relationship name="triggerConditions">
+            <destination>{7fc344bc-276c-4e10-9cfa-739b429225b5}</destination>
         </relationship>
     </object>
     <object class="LoopRegion" id="{b267f716-8cc4-48ed-ade6-9edb95178b74}">
@@ -431,11 +440,11 @@
         <relationship name="markerTrack">
             <destination>{48e8d7ea-04ce-4799-8d7b-7f6e1c47196f}</destination>
         </relationship>
-        <relationship name="triggerConditions">
-            <destination>{f601f0ee-9314-4e31-90ee-b0a833075ea7}</destination>
-        </relationship>
         <relationship name="destination">
             <destination>{22078198-ea7c-47e3-9aca-d040662fca68}</destination>
+        </relationship>
+        <relationship name="triggerConditions">
+            <destination>{f601f0ee-9314-4e31-90ee-b0a833075ea7}</destination>
         </relationship>
     </object>
     <object class="LoopRegion" id="{0feeb9c8-3665-4783-93a3-891c5bc45e6e}">
@@ -468,11 +477,11 @@
         <relationship name="markerTrack">
             <destination>{48e8d7ea-04ce-4799-8d7b-7f6e1c47196f}</destination>
         </relationship>
-        <relationship name="triggerConditions">
-            <destination>{cf3d1934-f297-4338-8db5-4ca3df8d4a73}</destination>
-        </relationship>
         <relationship name="destination">
             <destination>{7a003809-5660-4c87-b3d3-1aabac66f347}</destination>
+        </relationship>
+        <relationship name="triggerConditions">
+            <destination>{cf3d1934-f297-4338-8db5-4ca3df8d4a73}</destination>
         </relationship>
     </object>
     <object class="AutomationCurve" id="{2c7d4fe4-9ef3-4300-ada7-a6ddcd105d75}">

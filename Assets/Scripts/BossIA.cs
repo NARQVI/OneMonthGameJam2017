@@ -14,6 +14,11 @@ public class BossIA : MonoBehaviour {
     [SerializeField] private float distance;
     private Animator anim;
 
+	/* Atributos de Audio */
+	[FMODUnity.EventRef]
+	public string BossAttackEvent; // Event Player Attack
+	public string BossMoveEvent; // Event Player Move 
+
     private Transform trans;
 
 	// Use this for initialization
@@ -24,6 +29,10 @@ public class BossIA : MonoBehaviour {
         anim = GetComponent<Animator>();
         alive = true;
         anim.SetInteger("life", bossLife);
+
+		/* Initialization for Audio Events */
+		BossAttackEvent = "event:/Enemies/Boss/Attack"; // Event Attack 
+		BossMoveEvent = "event:/Enemies/Boss/Move"; // Event Move
     }
 	
 	// Update is called once per frame
@@ -39,6 +48,10 @@ public class BossIA : MonoBehaviour {
             trans.LookAt(look);
             trans.position = Vector3.MoveTowards(trans.position, player.GetComponent<Transform>().position, speed);
             anim.SetBool("walk", true);
+
+
+			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(BossMoveEvent); // Create a instance of the sound event 
+			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
             }
             else
@@ -56,6 +69,7 @@ public class BossIA : MonoBehaviour {
             anim.SetBool("death", true);
             StartCoroutine(destroid());  
         }
+			
 	}
 
 

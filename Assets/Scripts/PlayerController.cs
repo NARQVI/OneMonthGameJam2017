@@ -105,10 +105,10 @@ public class PlayerController : MonoBehaviour {
 			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(PlayerMoveEvent); // Create a instance of the sound event 
 			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
-			if (moveActualSpeed == 5)
-				e.setParameterValue ("Ice", 1f); // Change the parameter when the player move on ice surface
-			else
-				e.setParameterValue ("Ice", 0f); // Change the parameter when the player move on a diferent surface
+			if (moveActualSpeed == runSpeed)
+				e.setParameterValue ("Running", 1f); // Change the parameter when the player move on ice surface
+			else if (moveActualSpeed == moveSpeed)
+				e.setParameterValue ("Running", 0f); // Change the parameter when the player move on a diferent surface
 
 			e.start();
 			e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
