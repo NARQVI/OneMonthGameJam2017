@@ -6,14 +6,16 @@ using UnityEngine.AI;
 public class chaser : MonoBehaviour {
    
     public int num = 0;
-    public int life;
-    public LayerMask lay;
-    public GameObject player;
+    public int life; // atributo de vida
+    public LayerMask lay; 
+    public GameObject player; // el jugador
     public bool rand = false;
     GameObject currentTarget;
     public bool chase = false;
     public bool attack = false;
+    public float recoverytiem; // modela los frames de invulneravilidad
     NavMeshAgent agent;
+    [SerializeField] bool recob;
     [SerializeField] private Collider[] Cchase;
     [SerializeField] private Collider[] Cattack;
 
@@ -29,11 +31,12 @@ public class chaser : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
+        //inicializacion de variable
         anim = GetComponent<Animator>();
         trans = GetComponent<Transform>();
         player = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
-
+        recob = false;
 		/* Initialization for Audio Events */
 		ChaserAttackEvent = "event:/Enemies/Chaser/Attack"; // Event Attack 
 		ChaserMoveEvent = "event:/Enemies/Chaser/Move"; // Event Move
@@ -103,11 +106,24 @@ public class chaser : MonoBehaviour {
 
     public void takeDmg(int dmg)
     {
-        life -= dmg;
+        if(!recob)
+        {
+            life -= dmg;
+            StartCoroutine(rectime());
+        }
+ 
+        
     }
     private IEnumerator destroid()
     {
         yield return new WaitForSecondsRealtime(5);
         Destroy(gameObject);
+    }
+
+    private IEnumerator rectime()
+    {
+        recob = true;
+        yield return new WaitForSecondsRealtime(recoverytiem);
+        recob = false;
     }
 }

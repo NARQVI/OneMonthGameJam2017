@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
+	public const int playerLifeInit = 100;
 	public static GameManager instance = null; //Estático para ser llamado por otro script
 	public int level = 1; //Nivel en el que empieza el juego
 	public int playerLife = 100;
@@ -30,11 +31,13 @@ public class GameManager : MonoBehaviour {
 
 		InitGame (); //Función de inicio del juego
 	}
+		
 
 	//Inicia el juego en un determinado nivel
 	void InitGame()
 	{
 		Debug.Log (level);
+		playerLife = 100;
 		boardScript.SetupScene (level);
 
 	}
@@ -52,7 +55,8 @@ public class GameManager : MonoBehaviour {
 	//Metodo de unity que se llama cada vez que una escena es cargada
 	void OnLevelWasLoaded()
 	{
-		level++; 	
+		//level++; 	
+		Debug.Log(playerLife);
 		InitGame ();
 	}
 }

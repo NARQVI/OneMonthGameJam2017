@@ -17,15 +17,32 @@ public class swordhit : MonoBehaviour {
 	void Update () {
 		
 	}
+    private void OnTriggerEnter(Collider other)
+    {
+        if (other.gameObject == player)
+        {
+            try
+            {
+                other.GetComponent<PlayerController>().Hit(dmg);
+            }
+            catch
+            {
+                Debug.Log("no hit");
+            }
+
+        }
+    }
     private void OnTriggerStay(Collider other)
     {
         if (other.gameObject == player)
         {
-            cont++;
-            if(cont>=100)
+            try
             {
-                player.GetComponent<PlayerController>().Hit(dmg);
-                cont = 0;
+                other.GetComponent<PlayerController>().Hit(dmg);
+            }
+            catch
+            {
+                Debug.Log("no hit");
             }
             
         }
@@ -47,4 +64,5 @@ public class swordhit : MonoBehaviour {
     {
         GetComponent<Collider>().enabled = false;
     }
+
 }

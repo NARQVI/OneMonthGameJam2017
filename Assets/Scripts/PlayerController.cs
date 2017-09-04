@@ -15,9 +15,12 @@ public class PlayerController : MonoBehaviour {
 	public float restartDelayTime = 1f; //Tiempo de retardo para reiniciar la escena
 	public Text lifeText;
 	public Text coinsText;
+	public Slider lifeSlider;
 	public float timeToHeal = 1f;
 	public float runSpeed = 2f;
     public GameObject wepon;
+    public float recoverytime; //tiempo de invulneravilidad luego de ser golpeado
+    private bool recob;
     Vector3 forward, right;
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
@@ -35,28 +38,33 @@ public class PlayerController : MonoBehaviour {
     // Use this for initialization
     void Start()
     {
-		onChangeScene = false;
-        
+
+        onChangeScene = false;
+
         forward = Camera.main.transform.forward;
         forward.y = 0;
         forward = Vector3.Normalize(forward);
         right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
 
-		moveActualSpeed = moveSpeed;
+        moveActualSpeed = moveSpeed;
 
         rb = GetComponent<Rigidbody>();     //Gets rigid body component
         animator = GetComponent<Animator>(); //Gets animator component
 
-		life = GameManager.instance.playerLife;
-		lifeText.text = "Vida: " + life;
+        life = GameManager.instance.playerLife;
+        lifeSlider.value = life;
+        lifeText.text = "Vida: " + life;
 
-		coins = GameManager.instance.playerCoins;
-		coinsText.text = "$" + coins;
+        coins = GameManager.instance.playerCoins;
+        coinsText.text = "$" + coins;
 
-		/* Initialization for Audio Events */
-		PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
+        recob = false; 
+
+        /* Initialization for Audio Events */
+        PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
 		PlayerMoveEvent = "event:/Player/Move"; // Event Move
 
+		Debug.Log ("Start life: "+life);
     }
 
     private void Update()
@@ -127,8 +135,13 @@ public class PlayerController : MonoBehaviour {
     //Makes the calculation for a hit to the player given for an enemy
     public void Hit(int hit)
     {
+        if(!recob)
+        { 
         life -= hit;
-		lifeText.text = "Vida: " + life;
+            StartCoroutine(recovery());
+        }
+        lifeText.text = "Vida: " + life;
+		lifeSlider.value = life;
         if (life <= 0f)
         {
 			GameManager.instance.GameOver (); // Calls GameOver function after 2seconds
@@ -188,7 +201,14 @@ public class PlayerController : MonoBehaviour {
 		else
 			life = increment;
 		lifeText.text = "Vida: " + life;
+		lifeSlider.value = life;
 	}
     
+    private IEnumerator recovery()
+    {
+        recob = true;
+        yield return new WaitForSecondsRealtime(recoverytime);
+        recob = false;
+    }
 
 }
