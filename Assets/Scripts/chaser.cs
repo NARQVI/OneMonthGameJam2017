@@ -56,6 +56,8 @@ public class chaser : MonoBehaviour,DmgObjetc {
 		ChaserAttackEvent = "event:/Enemies/Chaser/Attack"; // Event Attack 
 		ChaserMoveEvent = "event:/Enemies/Chaser/Move"; // Event Move
 
+
+
     }
 
     // Update is called once per frame
@@ -74,8 +76,12 @@ public class chaser : MonoBehaviour,DmgObjetc {
             chase = true;
             anim.SetBool("run", true);
 
+			
 			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(ChaserMoveEvent); // Create a instance of the sound event 
 			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+
+			e.start();
+			e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
 
             dis = Vector3.Distance(trans.position, player.transform.position);
             if (dis<=agent.stoppingDistance)
@@ -83,6 +89,13 @@ public class chaser : MonoBehaviour,DmgObjetc {
                 anim.SetBool("run", false);
                 
                 StartCoroutine(attime());
+
+				FMOD.Studio.EventInstance a = FMODUnity.RuntimeManager.CreateInstance(ChaserAttackEvent); // Create a instance of the sound event 
+				a.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+
+				a.start();
+				a.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+
             }
 
         }
@@ -109,7 +122,6 @@ public class chaser : MonoBehaviour,DmgObjetc {
             attack = true;
             yield return new WaitForSeconds(2.3f);
             anim.SetBool("attack", false);
-     
         attack = false;
         
    
@@ -155,4 +167,18 @@ public class chaser : MonoBehaviour,DmgObjetc {
             StartCoroutine(rectime());
         }
     }
+
+	/**
+	 * Play attack sound
+	 */
+	public void attackSound()
+	{
+		FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(ChaserMoveEvent); // Create a instance of the sound event 
+		e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+
+		e.start();
+		e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+
+
+	}
 }
