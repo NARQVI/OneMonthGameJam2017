@@ -34,7 +34,8 @@ public class AsteDmg : MonoBehaviour {
     {
         try
         {
-            other.gameObject.GetComponent<tdmg>().takeDmg(dmg);
+            //  other.gameObject.GetComponent<tdmg>().takeDmg(dmg);
+            other.gameObject.GetComponent<DmgObjetc>().TakeDmg(dmg);
         }     
         catch
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 
-public class chaser : MonoBehaviour {
+public class chaser : MonoBehaviour,DmgObjetc {
    
     public int num = 0;
     public int life; // atributo de vida
@@ -23,6 +23,9 @@ public class chaser : MonoBehaviour {
     private Animator anim;
     public float dis;
 
+	public GameObject lifeFeedBack;
+	Transform lifeFeedBackSpawnPoint;
+
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
 	public string ChaserAttackEvent; // Event Player Attack
@@ -37,6 +40,18 @@ public class chaser : MonoBehaviour {
         player = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
         recob = false;
+
+		var children = gameObject.GetComponentsInChildren<Transform> ();
+		foreach (var child in children) 
+		{
+			if(child.name=="LifeSpawnPointEn")
+			{
+				lifeFeedBackSpawnPoint = child.transform; //Gets SpawnPoint location
+				break;
+			}
+		}
+		
+
 		/* Initialization for Audio Events */
 		ChaserAttackEvent = "event:/Enemies/Chaser/Attack"; // Event Attack 
 		ChaserMoveEvent = "event:/Enemies/Chaser/Move"; // Event Move
@@ -66,6 +81,7 @@ public class chaser : MonoBehaviour {
             if (dis<=agent.stoppingDistance)
             {
                 anim.SetBool("run", false);
+                
                 StartCoroutine(attime());
             }
 
@@ -91,7 +107,7 @@ public class chaser : MonoBehaviour {
     {
             anim.SetBool("attack", true);
             attack = true;
-            yield return new WaitForSeconds(5f);
+            yield return new WaitForSeconds(2.3f);
             anim.SetBool("attack", false);
      
         attack = false;
@@ -104,16 +120,7 @@ public class chaser : MonoBehaviour {
         yield return new WaitForSecondsRealtime(1f);
     }
 
-    public void takeDmg(int dmg)
-    {
-        if(!recob)
-        {
-            life -= dmg;
-            StartCoroutine(rectime());
-        }
- 
-        
-    }
+
     private IEnumerator destroid()
     {
         yield return new WaitForSecondsRealtime(5);
@@ -125,5 +132,27 @@ public class chaser : MonoBehaviour {
         recob = true;
         yield return new WaitForSecondsRealtime(recoverytiem);
         recob = false;
+    }
+
+	private void InstantiateLifeFeedBack(int lifeLost)
+	{
+		GameObject lifeFB = null;
+
+		if (lifeFeedBackSpawnPoint != null) 
+		{
+			lifeFB = (GameObject)Instantiate (lifeFeedBack, lifeFeedBackSpawnPoint.position, lifeFeedBackSpawnPoint.rotation);
+			lifeFB.GetComponent<LifeFeedBack> ().lifeLost = lifeLost;
+		}
+
+	}
+    public void TakeDmg(int dmg)
+    {
+        if (!recob)
+        {
+            life -= dmg;
+            if (life + dmg >= 0)
+                InstantiateLifeFeedBack(-dmg);
+            StartCoroutine(rectime());
+        }
     }
 }

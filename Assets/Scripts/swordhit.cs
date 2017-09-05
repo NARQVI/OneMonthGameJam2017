@@ -23,7 +23,7 @@ public class swordhit : MonoBehaviour {
         {
             try
             {
-                other.GetComponent<PlayerController>().Hit(dmg);
+                other.GetComponent<DmgObjetc>().TakeDmg(dmg);
             }
             catch
             {
@@ -32,21 +32,7 @@ public class swordhit : MonoBehaviour {
 
         }
     }
-    private void OnTriggerStay(Collider other)
-    {
-        if (other.gameObject == player)
-        {
-            try
-            {
-                other.GetComponent<PlayerController>().Hit(dmg);
-            }
-            catch
-            {
-                Debug.Log("no hit");
-            }
-            
-        }
-    }
+
 
     private void OnTriggerExit(Collider other)
     {

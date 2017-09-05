@@ -26,7 +26,7 @@ public class DamagePlayer : MonoBehaviour {
     {
         if (other is SphereCollider && other.CompareTag("Player")) // Checks if collides with the player      
 		{					
-            other.GetComponent<PlayerController>().Hit(playerDamage); // Callsd hit function in Player Controlelr script
+            other.GetComponent<PlayerController>().TakeDmg(playerDamage); // Callsd hit function in Player Controlelr script
             if (animator != null)
                 animator.SetTrigger("PlayerInRange");
         }
@@ -40,7 +40,7 @@ public class DamagePlayer : MonoBehaviour {
 		if (other is SphereCollider && other.CompareTag("Player") && Time.time > nextHit) // Checks if collides with the player          
 		{
             nextHit = Time.time + timeInside;
-            other.GetComponent<PlayerController>().Hit(playerDamage); // Calls hit function in Player Controlelr script
+            other.GetComponent<PlayerController>().TakeDmg(playerDamage); // Calls hit function in Player Controlelr script
             if (animator != null)
                 animator.SetTrigger("PlayerInRange");
         }

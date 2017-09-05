@@ -8,27 +8,31 @@ using UnityEngine.UI;
  *Class that models the behaviour of the player 
  */
 
-public class PlayerController : MonoBehaviour {
+public class PlayerController : MonoBehaviour,DmgObjetc {
 
     [SerializeField]
     public float moveSpeed = 15f;       //Object movement speed 
 	public float restartDelayTime = 1f; //Tiempo de retardo para reiniciar la escena
-	public Text lifeText;
-	public Text coinsText;
-	public Slider lifeSlider;
+
 	public float timeToHeal = 1f;
 	public float runSpeed = 2f;
     public GameObject wepon;
     public float recoverytime; //tiempo de invulneravilidad luego de ser golpeado
-    private bool recob;
+    
+	bool recob;
     Vector3 forward, right;
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
     Vector3 movement;
 	int life;           //Models the players life
-	int coins;			//Models the number of coins the player has
 	float nextHeal;		//Timer for counting the time btwn heals
 	bool onChangeScene;	//Boolean for changing scenes
+
+	/*GUI*/
+	public Text lifeText;
+	public Slider lifeSlider;
+	public GameObject lifeFeedBack;
+	Transform lifeFeedBackSpawnPoint;
 
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
@@ -55,16 +59,15 @@ public class PlayerController : MonoBehaviour {
         lifeSlider.value = life;
         lifeText.text = "Vida: " + life;
 
-        coins = GameManager.instance.playerCoins;
-        coinsText.text = "$" + coins;
-
         recob = false; 
+
+		lifeFeedBackSpawnPoint = GameObject.Find ("LifeSpawnPoint").transform; //Gets SpawnPoint location
+
 
         /* Initialization for Audio Events */
         PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
 		PlayerMoveEvent = "event:/Player/Move"; // Event Move
 
-		Debug.Log ("Start life: "+life);
     }
 
     private void Update()
@@ -95,15 +98,17 @@ public class PlayerController : MonoBehaviour {
 		else
 			moveActualSpeed = moveSpeed;
 		
-        Vector3 rightMovement = right * moveActualSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
-        Vector3 upMovement = forward * moveActualSpeed * Time.deltaTime *v;
+		Vector3 rightMovement = Vector3.back * moveActualSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
+		Vector3 upMovement = Vector3.right * moveActualSpeed * Time.deltaTime *v;
         Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
         if(heading != Vector3.zero) //Only change when moving
             transform.forward = heading;
 
         movement = rightMovement + upMovement;  
         movement = movement.normalized * moveActualSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
-        rb.MovePosition(transform.position+movement);   //Moves the object
+		
+
+		rb.MovePosition(transform.position+movement);   //Moves the object
         animator.SetFloat("Velocity",Mathf.Abs(Input.GetAxisRaw("Horizontal"))+Mathf.Abs( Input.GetAxisRaw("Vertical"))); //Set the value of "Velocity" in the animator
 		animator.SetBool ("Run",running);
 
@@ -133,11 +138,12 @@ public class PlayerController : MonoBehaviour {
     }
 
     //Makes the calculation for a hit to the player given for an enemy
-    public void Hit(int hit)
+    public void TakeDmg(int hit)
     {
         if(!recob)
         { 
-        life -= hit;
+        	life -= hit;
+			InstantiateLifeFeedBack (-hit);
             StartCoroutine(recovery());
         }
         lifeText.text = "Vida: " + life;
@@ -159,7 +165,6 @@ public class PlayerController : MonoBehaviour {
 	private void OnDisable()
 	{
 		GameManager.instance.playerLife = life;
-		GameManager.instance.playerCoins = coins;
 	}
 
 	//Se llama cuando el jugador se queda dentro de una colision
@@ -173,12 +178,6 @@ public class PlayerController : MonoBehaviour {
 
 		if (other.CompareTag ("Heal"))  //Activa cuando el jugador entra en la estatua de curacion
 			Heal();
-
-		if (other.CompareTag ("Coin")) 
-		{
-			coins++;
-			coinsText.text = "$" + coins;
-		}
 
 		nextHeal = Time.time + timeToHeal;
 
@@ -196,19 +195,35 @@ public class PlayerController : MonoBehaviour {
 	void Heal()
 	{
 		int increment = Mathf.RoundToInt(life + life * 0.1f);
+		int difference = Mathf.RoundToInt(life * 0.1f);
 		if (increment > 100)
 			life = 100;
 		else
 			life = increment;
 		lifeText.text = "Vida: " + life;
 		lifeSlider.value = life;
+		InstantiateLifeFeedBack (difference);
 	}
-    
+
+    //mettodo que da un tiempo de recuperacion anters de recivir mas daño
     private IEnumerator recovery()
     {
         recob = true;
+        animator.SetTrigger("Hit");
         yield return new WaitForSecondsRealtime(recoverytime);
         recob = false;
     }
+
+	private void InstantiateLifeFeedBack(int lifeLost)
+	{
+		GameObject lifeFB = null;
+
+		if (lifeFeedBackSpawnPoint != null) 
+		{
+			lifeFB = (GameObject)Instantiate (lifeFeedBack, lifeFeedBackSpawnPoint.position, lifeFeedBackSpawnPoint.rotation);
+			lifeFB.GetComponent<LifeFeedBack> ().lifeLost = lifeLost;
+		}
+		
+	}
 
 }
