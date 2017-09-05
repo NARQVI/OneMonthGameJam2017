@@ -3868,6 +3868,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1451651279032606
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4241492575832866}
+  m_Layer: 0
+  m_Name: LifeSpawnPointEn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1453383829749538
 GameObject:
   m_ObjectHideFlags: 1
@@ -10966,6 +10981,7 @@ Transform:
   m_LocalPosition: {x: -37.69028, y: -2.227086, z: -3.391758}
   m_LocalScale: {x: 0.30000025, y: 0.3, z: 0.30000025}
   m_Children:
+  - {fileID: 4241492575832866}
   - {fileID: 4226568345039560}
   - {fileID: 4718812858122352}
   - {fileID: 4667680603561530}
@@ -11672,7 +11688,7 @@ Transform:
   m_LocalScale: {x: 46.31509, y: 39.211357, z: 105.817566}
   m_Children: []
   m_Father: {fileID: 4146649409706170}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4226656902461496
 Transform:
@@ -11774,6 +11790,19 @@ Transform:
   - {fileID: 4780181009779492}
   m_Father: {fileID: 4441886615076000}
   m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4241492575832866
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1451651279032606}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.2, y: 5.27, z: -4.59}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4146649409706170}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4241501586113682
 Transform:
@@ -15747,7 +15776,7 @@ Transform:
   m_Children:
   - {fileID: 4602313701527938}
   m_Father: {fileID: 4146649409706170}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4668154439926548
 Transform:
@@ -16241,7 +16270,7 @@ Transform:
   m_LocalScale: {x: 46.31509, y: 39.211357, z: 105.817566}
   m_Children: []
   m_Father: {fileID: 4146649409706170}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4720362250336706
 Transform:
@@ -16945,7 +16974,7 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1902854535459438}
-  m_LocalRotation: {x: -0.0323, y: 0.7175987, z: -0.2690545, w: 0.64157504}
+  m_LocalRotation: {x: -0.032300003, y: 0.71759874, z: -0.26905453, w: 0.6415751}
   m_LocalPosition: {x: -0.0010578717, y: 0.00022050511, z: 0.00018965449}
   m_LocalScale: {x: 1, y: 0.82210624, z: 1.0000002}
   m_Children:
@@ -18825,6 +18854,8 @@ MonoBehaviour:
   Cchase: []
   Cattack: []
   dis: 0
+  lifeFeedBack: {fileID: 1245461921708272, guid: 5eb820e8998c56240a8d8ec4845a9089,
+    type: 2}
   ChaserAttackEvent: 
   ChaserMoveEvent: 
 --- !u!114 &114709603088386352

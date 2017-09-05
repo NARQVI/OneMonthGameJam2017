@@ -23,6 +23,9 @@ public class chaser : MonoBehaviour {
     private Animator anim;
     public float dis;
 
+	public GameObject lifeFeedBack;
+	Transform lifeFeedBackSpawnPoint;
+
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
 	public string ChaserAttackEvent; // Event Player Attack
@@ -37,6 +40,18 @@ public class chaser : MonoBehaviour {
         player = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
         recob = false;
+
+		var children = gameObject.GetComponentsInChildren<Transform> ();
+		foreach (var child in children) 
+		{
+			if(child.name=="LifeSpawnPointEn")
+			{
+				lifeFeedBackSpawnPoint = child.transform; //Gets SpawnPoint location
+				break;
+			}
+		}
+		
+
 		/* Initialization for Audio Events */
 		ChaserAttackEvent = "event:/Enemies/Chaser/Attack"; // Event Attack 
 		ChaserMoveEvent = "event:/Enemies/Chaser/Move"; // Event Move
@@ -110,6 +125,8 @@ public class chaser : MonoBehaviour {
         if(!recob)
         {
             life -= dmg;
+			if(life+dmg>=0)
+				InstantiateLifeFeedBack (-dmg);
             StartCoroutine(rectime());
         }
  
@@ -127,4 +144,16 @@ public class chaser : MonoBehaviour {
         yield return new WaitForSecondsRealtime(recoverytiem);
         recob = false;
     }
+
+	private void InstantiateLifeFeedBack(int lifeLost)
+	{
+		GameObject lifeFB = null;
+
+		if (lifeFeedBackSpawnPoint != null) 
+		{
+			lifeFB = (GameObject)Instantiate (lifeFeedBack, lifeFeedBackSpawnPoint.position, lifeFeedBackSpawnPoint.rotation);
+			lifeFB.GetComponent<LifeFeedBack> ().lifeLost = lifeLost;
+		}
+
+	}
 }
