@@ -53,6 +53,9 @@ public class BossIA : MonoBehaviour,DmgObjetc {
 			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(BossMoveEvent); // Create a instance of the sound event 
 			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
+			e.start();
+			e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+
             }
             else if (distance <= attackRange)
             {

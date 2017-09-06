@@ -134,7 +134,12 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
     void Attack()
     {
         animator.SetTrigger("Attack"); //Sets the animation
-		FMODUnity.RuntimeManager.PlayOneShot(PlayerAttackEvent, transform.position);
+
+		FMOD.Studio.EventInstance attack = FMODUnity.RuntimeManager.CreateInstance(PlayerAttackEvent); // Create a instance of the sound event 
+		attack.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+
+		attack.start ();
+		attack.release ();
     }
 
     //Makes the calculation for a hit to the player given for an enemy
