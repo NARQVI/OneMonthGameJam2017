@@ -19,14 +19,17 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
     public GameObject wepon;
     public float recoverytime; //tiempo de invulneravilidad luego de ser golpeado
     
+	bool onChangeScene;	//Boolean for changing scenes
 	bool recob;
     Vector3 forward, right;
+	Vector3 movement;
     Rigidbody rb;                       //This object rigid body
     Animator animator;                  //this object animator
-    Vector3 movement;
+
 	int life;           //Models the players life
+	int floorMask;                      // A layer mask so that a ray can be cast just at gameobjects on the floor layer.
 	float nextHeal;		//Timer for counting the time btwn heals
-	bool onChangeScene;	//Boolean for changing scenes
+	float camRayLength = 100f;          // The length of the ray from the camera into the scene.
 
 	/*GUI*/
 	public Text lifeText;
@@ -39,17 +42,19 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 	public string PlayerAttackEvent; // Event Player Attack
 	public string PlayerMoveEvent; // Event Player Move 
 	private float moveActualSpeed;
+
+	void Awake()
+	{
+		floorMask = LayerMask.GetMask ("terran");
+	}
+
+
     // Use this for initialization
     void Start()
     {
 
         onChangeScene = false;
-
-        forward = Camera.main.transform.forward;
-        forward.y = 0;
-        forward = Vector3.Normalize(forward);
-        right = Quaternion.Euler(new Vector3(0, 90, 0)) * forward;
-
+	
         moveActualSpeed = moveSpeed;
 
         rb = GetComponent<Rigidbody>();     //Gets rigid body component
@@ -72,7 +77,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))    //Check if space key is down
+		if (Input.GetMouseButtonDown(0))    //Check if left mouse button is down
         {
             Attack();   //Calls attack method
             Debug.LogError("quizasww");
@@ -86,7 +91,10 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
         float horizontal = Input.GetAxisRaw("Horizontal");  //Get horizontal input
         float vertical = Input.GetAxisRaw("Vertical");      //Get vertical input
 		bool running = Input.GetKey(KeyCode.LeftShift);
-        Move(horizontal,vertical,running);  //Calls Move method
+        
+		Move(horizontal,vertical,running);  //Calls Move method
+
+		Turning ();
     }
 
     //Moves the player in a given direction
@@ -100,9 +108,6 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 		
 		Vector3 rightMovement = Vector3.back * moveActualSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
 		Vector3 upMovement = Vector3.right * moveActualSpeed * Time.deltaTime *v;
-        Vector3 heading = Vector3.Normalize(rightMovement + upMovement);
-        if(heading != Vector3.zero) //Only change when moving
-            transform.forward = heading;
 
         movement = rightMovement + upMovement;  
         movement = movement.normalized * moveActualSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
@@ -224,6 +229,32 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 			lifeFB.GetComponent<LifeFeedBack> ().lifeLost = lifeLost;
 		}
 		
+	}
+
+	//Makes player to face the coursor mouse
+	void Turning()
+	{
+		// Create a ray from the mouse cursor on screen in the direction of the camera.
+		Ray camRay = Camera.main.ScreenPointToRay (Input.mousePosition);
+
+		// Create a RaycastHit variable to store information about what was hit by the ray.
+		RaycastHit floorHit;
+
+		// Perform the raycast and if it hits something on the floor layer...
+		if(Physics.Raycast (camRay, out floorHit, camRayLength, floorMask))
+		{
+			// Create a vector from the player to the point on the floor the raycast from the mouse hit.
+			Vector3 playerToMouse = floorHit.point - transform.position;
+
+			// Ensure the vector is entirely along the floor plane.
+			playerToMouse.y = 0f;
+
+			// Create a quaternion (rotation) based on looking down the vector from the player to the mouse.
+			Quaternion newRotation = Quaternion.LookRotation (playerToMouse);
+
+			// Set the player's rotation to this new rotation.
+			rb.MoveRotation (newRotation);
+		}
 	}
 
 }
