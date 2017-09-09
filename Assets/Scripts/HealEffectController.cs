@@ -6,12 +6,12 @@ public class HealEffectController : MonoBehaviour {
 
 	ParticleSystem pSystem;
 
-
 	void Start() 
 	{
 		pSystem = GetComponent<ParticleSystem> ();
 		var pSystemEmission = pSystem.emission;	//Guarda el modulo de emisión
 		pSystemEmission.enabled = false;	//Desactiva la emisión
+
 	
 	}
 		
@@ -32,4 +32,5 @@ public class HealEffectController : MonoBehaviour {
 			pSystemEmission.enabled = false;	//Activa la emisión
 		}
 	}
+		
 }

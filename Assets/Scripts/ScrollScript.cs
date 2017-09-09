@@ -63,7 +63,7 @@ public class ScrollScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space) && !isScrolling) {
 			continueText.text="Loading";
 			SceneManager.LoadScene (2);
-			musicSystem.mundo ();
+			musicSystem.MainMusic ();
 		}
 	}
 

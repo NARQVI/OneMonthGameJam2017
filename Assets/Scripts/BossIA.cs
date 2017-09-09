@@ -18,6 +18,7 @@ public class BossIA : MonoBehaviour,DmgObjetc {
 	[FMODUnity.EventRef]
 	public string BossAttackEvent; // Event Player Attack
 	public string BossMoveEvent; // Event Player Move 
+	public string BossDamageEvent; // Event Player Move 
 
     private Transform trans;
 
@@ -33,6 +34,7 @@ public class BossIA : MonoBehaviour,DmgObjetc {
 		/* Initialization for Audio Events */
 		BossAttackEvent = "event:/Enemies/Boss/Attack"; // Event Attack 
 		BossMoveEvent = "event:/Enemies/Boss/Move"; // Event Move
+		BossDamageEvent = "event:/Enemies/Boss/Damage"; // Event Move
     }
 	
 	// Update is called once per frame
@@ -49,15 +51,14 @@ public class BossIA : MonoBehaviour,DmgObjetc {
             trans.position = Vector3.MoveTowards(trans.position, player.GetComponent<Transform>().position, speed);
             anim.SetBool("walk", true);
 
-
-			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(BossMoveEvent); // Create a instance of the sound event 
-			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+			MoveSound ();
 
             }
             else if (distance <= attackRange)
             {
                float n =Random.Range(-2f, 2f);
                 anim.SetFloat("attack",n);
+				AttackSound ();
             }
             else
             {
@@ -81,6 +82,8 @@ public class BossIA : MonoBehaviour,DmgObjetc {
     public void takeDmg(int dmg)
     {
         bossLife -= dmg;
+		DamageSound ();
+
     }
     public void setActive(bool ss)
     {
@@ -102,4 +105,34 @@ public class BossIA : MonoBehaviour,DmgObjetc {
     {
 
     }
+
+	/**
+	 * Sound Methods
+	 **/
+
+	//Hace que suene el sonido cuando es atacado
+	public void DamageSound()
+	{
+		FMODUnity.RuntimeManager.PlayOneShot(BossDamageEvent, transform.position);
+
+	}
+
+	//Hace que suene el sonido del movimiento
+	public void MoveSound()
+	{
+
+		FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(BossMoveEvent); // Create a instance of the sound event 
+		e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+	
+		e.start();
+		e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+
+	}
+
+	//Hace que suene el sonido del ataque
+	public void AttackSound()
+	{
+		FMODUnity.RuntimeManager.PlayOneShot(BossAttackEvent, transform.position);
+	}
+
 }

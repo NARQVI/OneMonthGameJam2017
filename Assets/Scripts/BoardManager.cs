@@ -45,13 +45,13 @@ public class BoardManager : MonoBehaviour {
 			Instantiate (spikes, new Vector3(-6.3f,-3f,3f),Quaternion.identity,basicLayoutIns.transform);
 			Instantiate (towers,new Vector3(2.3f,-4.0f,0f),Quaternion.identity,basicLayoutIns.transform);
 			Instantiate (healStatue,new Vector3(2.3f,-3f,6f),Quaternion.identity,basicLayoutIns.transform);
-			musicSystem.mundo (); // Cambia la musica al mundo, los parametros son de prueba
+			musicSystem.MainMusic (); // Cambia la musica al mundo, los parametros son de prueba
 		}
         if (level == 3)
         {
             Instantiate(civilian, new Vector3(5f, -3f, 3f), Quaternion.identity, basicLayoutIns.transform);
             Instantiate(enemy, new Vector3(2.3f, -2.17f, 0f), Quaternion.identity, basicLayoutIns.transform);
-			musicSystem.lvl2 (); // Añade un sonido cuando es lvl 3, los parametros son de prueba
+
            
         }
     }

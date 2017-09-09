@@ -34,17 +34,17 @@ public class MusicController : MonoBehaviour {
 
 		musicEv = FMODUnity.RuntimeManager.CreateInstance (music);
 
-	
+
 		musicEv.start ();
 	}
 
-	public void mundo(){
+	public void Boss(){
 
 		musicEv.setParameterValue ("Mundo", 1f);
 		musicEv.setParameterValue ("lvl2", 0f);
 	}
 
-	public void lvl2(){
+	public void MainMusic(){
 
 		musicEv.setParameterValue ("lvl2", 1f);
 		musicEv.setParameterValue ("Mundo", 0f);

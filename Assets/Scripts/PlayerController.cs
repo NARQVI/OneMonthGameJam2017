@@ -39,9 +39,11 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
-	public string PlayerAttackEvent; // Event Player Attack
-	public string PlayerMoveEvent; // Event Player Move 
+	public string playerAttackEvent; // Event Player Attack
+	public string playerMoveEvent; // Event Player Move 
+	public string playerDamageEvent; // Event player Damage
 	private float moveActualSpeed;
+	public string playerHealSound; // Refence to  FMOD event
 
 	void Awake()
 	{
@@ -70,19 +72,24 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 
         /* Initialization for Audio Events */
-        PlayerAttackEvent = "event:/Player/Attack"; // Event Attack 
-		PlayerMoveEvent = "event:/Player/Move"; // Event Move
+        playerAttackEvent = "event:/Player/Attack"; // Event Attack 
+		playerMoveEvent = "event:/Player/Move"; // Event Move
+		playerDamageEvent = "event:/Player/Damage"; // Event Damage
+		playerHealSound = "event:/Player/Heal";
 
+ 
     }
 
     private void Update()
     {
+		
 		if (Input.GetMouseButtonDown(0))    //Check if left mouse button is down
         {
             Attack();   //Calls attack method
             Debug.LogError("quizasww");
             wepon.GetComponent<AsteDmg>().attack();
         }
+	
     }
 
     // Update is called once per frame
@@ -96,6 +103,52 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 		Turning ();
     }
+
+	/**
+	 * Sound Methods
+	 **/
+
+	//Hace que suene el sonido cuando es atacado
+	public void DamageSound()
+	{
+		FMODUnity.RuntimeManager.PlayOneShot(playerDamageEvent, transform.position);
+
+	}
+
+	//Hace que suene el sonido del movimiento
+	public void MoveSound()
+	{
+		
+		FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(playerMoveEvent); // Create a instance of the sound event 
+		e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+
+		if (moveActualSpeed == runSpeed)
+			e.setParameterValue ("Running", 1f); // Change the parameter when the player move on ice surface
+		else if (moveActualSpeed == moveSpeed)
+			e.setParameterValue ("Running", 0f); // Change the parameter when the player move on a diferent surface
+
+		e.start();
+		e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+
+	}
+
+	//Hace que suene el sonido del ataque
+	public void AttackSound()
+	{
+		FMODUnity.RuntimeManager.PlayOneShot(playerAttackEvent, transform.position);
+	}
+
+	//Hace que suene el efecto de curación
+	public void HealSound()
+	{
+
+		FMODUnity.RuntimeManager.PlayOneShot (playerHealSound, transform.position);
+
+	}
+
+	/**
+	 * Other Methods
+	**/
 
     //Moves the player in a given direction
 	void Move(float h, float v,bool running)
@@ -120,6 +173,8 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 		if (h != 0 || v != 0) {
 
+			/**
+			 * NO BORRAR PRUEBAS PARA SER MAS ORDENADOS EN CURSO
 			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(PlayerMoveEvent); // Create a instance of the sound event 
 			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
@@ -130,6 +185,9 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 			e.start();
 			e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+			*/
+
+			MoveSound ();
 
 		}
 
@@ -139,17 +197,19 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
     void Attack()
     {
         animator.SetTrigger("Attack"); //Sets the animation
-		FMODUnity.RuntimeManager.PlayOneShot(PlayerAttackEvent, transform.position);
+		AttackSound();
     }
 
     //Makes the calculation for a hit to the player given for an enemy
     public void TakeDmg(int hit)
     {
+
         if(!recob)
         { 
         	life -= hit;
 			InstantiateLifeFeedBack (-hit);
             StartCoroutine(recovery());
+			DamageSound (); // Play Damage Sound
         }
         lifeText.text = "Vida: " + life;
 		lifeSlider.value = life;
@@ -158,7 +218,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 			GameManager.instance.GameOver (); // Calls GameOver function after 2seconds
         }
     }
-
+		
 
     //Carga la última escena
     void Restart()
@@ -181,8 +241,11 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 		}
 
-		if (other.CompareTag ("Heal"))  //Activa cuando el jugador entra en la estatua de curacion
-			Heal();
+		//Activa cuando el jugador entra en la estatua de curacion
+		if (other.CompareTag ("Heal")) 
+		{
+			Heal ();
+		}
 
 		nextHeal = Time.time + timeToHeal;
 
@@ -208,6 +271,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 		lifeText.text = "Vida: " + life;
 		lifeSlider.value = life;
 		InstantiateLifeFeedBack (difference);
+		HealSound ();
 	}
 
     //mettodo que da un tiempo de recuperacion anters de recivir mas daño

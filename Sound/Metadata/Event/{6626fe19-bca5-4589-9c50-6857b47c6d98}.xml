@@ -104,7 +104,17 @@
             <destination>{399caf46-b5b0-47cc-b059-5cdc8345be40}</destination>
         </relationship>
     </object>
-    <object class="MixerBusPanner" id="{03e6b6b8-404c-432c-9242-1d32548527b0}"/>
+    <object class="MixerBusPanner" id="{03e6b6b8-404c-432c-9242-1d32548527b0}">
+        <property name="surroundPanDirection">
+            <value>26.565052</value>
+        </property>
+        <property name="surroundPanExtent">
+            <value>356.645203</value>
+        </property>
+        <property name="surroundLFELevel">
+            <value>-8</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{828ad1b2-4547-4757-88e5-0f63236bbf9b}"/>
     <object class="MixerBusEffectChain" id="{0b366971-cfb8-4751-ad4b-4889a6075d9c}">
         <relationship name="effects">
@@ -113,6 +123,10 @@
     </object>
     <object class="MixerBusPanner" id="{c852ba6d-6d69-4c2c-8b4d-e33ea9e4b3b2}"/>
     <object class="MixerBusFader" id="{9163d5fc-8a32-4c6c-8258-4eaa4072d5ff}"/>
-    <object class="SpatialiserEffect" id="{399caf46-b5b0-47cc-b059-5cdc8345be40}"/>
+    <object class="SpatialiserEffect" id="{399caf46-b5b0-47cc-b059-5cdc8345be40}">
+        <property name="distanceRolloffType">
+            <value>4</value>
+        </property>
+    </object>
     <object class="MixerBusFader" id="{43d92a0c-7eab-4186-ae16-17b63224ddcd}"/>
 </objects>
