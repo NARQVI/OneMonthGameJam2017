@@ -26,7 +26,7 @@ public class BoardManager : MonoBehaviour {
     //Carga la escena dependiendo del nivel
     public void SetupScene(int level)
 	{
-		musicSystem = MusicController.instance;
+		
 
 		var basicLayoutIns=Instantiate (basicLayout,basicLayout.transform.position,Quaternion.identity);
         //Instantiate(spikes, basicLayoutIns.transform, false);

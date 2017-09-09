@@ -7,6 +7,8 @@ public class MenuManagerScript : MonoBehaviour {
 
 	public void startTextScene()
 	{
+		
 		SceneManager.LoadScene (1);
+
 	}
 }

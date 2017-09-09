@@ -13,7 +13,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   EditorBanks:
   - {fileID: 114080110133834582}
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   EditorEvents:
   - {fileID: 114598532549347242}
   - {fileID: 114540168099753134}
@@ -25,9 +25,9 @@ MonoBehaviour:
   - {fileID: 114838558988224394}
   - {fileID: 114781225798472330}
   - {fileID: 114039065017137930}
-  MasterBankRef: {fileID: 114706228142716268}
+  MasterBankRef: {fileID: 114653795969575226}
   StringsBankRef: {fileID: 114080110133834582}
-  stringsBankWriteTime: 636400767063258867
+  stringsBankWriteTime: 636400770930000000
   cacheVersion: 2
 --- !u!114 &114001950117971566
 MonoBehaviour:
@@ -91,7 +91,7 @@ MonoBehaviour:
   Path: event:/Objects/Spikes
   guid: 4989163927598746897336c0f0249c3d
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 1
   Is3D: 1
   IsOneShot: 1
@@ -112,13 +112,13 @@ MonoBehaviour:
   Path: event:/Music/Music2
   guid: ddb3c6eee77b1a4fb8c2645cb6173025
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114065852858502834}
-  - {fileID: 114705336587927282}
+  - {fileID: 114858943756405548}
+  - {fileID: 114536817875466268}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114041924395663450
@@ -192,8 +192,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Path: Sound\Build\Desktop\Master Bank.strings.bank
-  lastModified: 636400767063258867
+  Path: Sound/Build/Desktop/Master Bank.strings.bank
+  lastModified: 636400770930000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -243,7 +243,7 @@ MonoBehaviour:
   Path: event:/Player/Attack
   guid: 19fe2666a5bc89459c506857b47c6d98
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -277,6 +277,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: lvl2
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114140186577069532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mundo
   Min: 0
   Max: 1
   Default: 0
@@ -354,16 +369,31 @@ MonoBehaviour:
   Path: event:/Player/Move
   guid: 7231e88392915443aba590c2298b6302
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114973642867463852}
-  - {fileID: 114562708807501892}
+  - {fileID: 114247911359333486}
+  - {fileID: 114194713199307048}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114176278768568944
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114194713199307048
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -420,6 +450,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: lvl2
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114247911359333486
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Running
   Min: 0
   Max: 1
   Default: 0
@@ -618,6 +663,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114484052264964988
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114484579219856910
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -630,6 +690,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114491095285164224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114508603463517032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Running
   Min: 0
   Max: 1
   Default: 0
@@ -647,7 +737,7 @@ MonoBehaviour:
   Path: event:/Enemies/Boss/Attack
   guid: 2992e25dbc55ba459782d029a1365e94
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -729,6 +819,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114536817875466268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114538690731610480
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -758,7 +863,7 @@ MonoBehaviour:
   Path: event:/Objects/Estatua
   guid: 0f429e9d4f80b145927ccfa42461b745
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -825,6 +930,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114591561669554696
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114598532549347242
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -839,13 +959,13 @@ MonoBehaviour:
   Path: event:/Enemies/Boss/Move
   guid: 08d887871aba684eb3f1a09a2fed9583
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114635403254926676}
-  - {fileID: 114538690731610480}
+  - {fileID: 114491095285164224}
+  - {fileID: 114508603463517032}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114607679346248042
@@ -911,6 +1031,25 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114653795969575226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Path: /Users/felipesalas/Documents/GitHub/OneMonthGameJam2017/Sound/Build/Desktop/Master
+    Bank.bank
+  lastModified: 636404949460000000
+  LoadResult: 0
+  FileSizes:
+  - Name: Desktop
+    Value: 23202720
+  Exists: 1
 --- !u!114 &114655788774992384
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1005,6 +1144,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114739352531262254
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Running
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114757720739620014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1049,13 +1203,13 @@ MonoBehaviour:
   Path: event:/Enemies/Chaser/Move
   guid: da8cef372bfece4fb77967cabf99bf5e
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
   Parameters:
-  - {fileID: 114532515039886676}
-  - {fileID: 114149681414214950}
+  - {fileID: 114591561669554696}
+  - {fileID: 114739352531262254}
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114796217805857310
@@ -1180,13 +1334,13 @@ MonoBehaviour:
   Path: event:/Music/Music
   guid: bf7b2ce7e0bc0c4e9b210dfad4f38640
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 114859899115337122}
-  - {fileID: 114196186468805242}
+  - {fileID: 114484052264964988}
+  - {fileID: 114140186577069532}
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114838558988224394
@@ -1203,7 +1357,7 @@ MonoBehaviour:
   Path: event:/Enemies/Chaser/Attack
   guid: d36a9b6389b54441b2f65a4a9aa0a860
   Banks:
-  - {fileID: 114706228142716268}
+  - {fileID: 114653795969575226}
   IsStream: 0
   Is3D: 1
   IsOneShot: 1
@@ -1252,6 +1406,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114858943756405548
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
   Min: 0
   Max: 1
   Default: 0

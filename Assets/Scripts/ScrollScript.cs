@@ -14,6 +14,11 @@ public class ScrollScript : MonoBehaviour {
 	public Text scrollText;
 	public Text continueText;
 	public float scrollSpeed = 1.0f;
+
+
+	//Refencias al sistema de sonido 
+	public GameObject musicSystemObject; 
+	public MusicController musicSystem;
 	 
 	// Use this for initialization
 	void Start () {
@@ -24,6 +29,9 @@ public class ScrollScript : MonoBehaviour {
 		scrollTextGO = scrollText.gameObject;
 
 		maxYlimit += scrollTextGO.transform.position.y;
+
+		musicSystemObject = GameObject.Find ("MusicManager");
+		musicSystem = musicSystemObject.GetComponent<MusicController>();
 
 	}
 	
@@ -55,6 +63,7 @@ public class ScrollScript : MonoBehaviour {
 		if (Input.GetKeyDown (KeyCode.Space) && !isScrolling) {
 			continueText.text="Loading";
 			SceneManager.LoadScene (2);
+			musicSystem.mundo ();
 		}
 	}
 
