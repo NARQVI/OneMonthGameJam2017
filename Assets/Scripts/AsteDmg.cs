@@ -32,7 +32,9 @@ public class AsteDmg : MonoBehaviour {
     }
     private void OnTriggerEnter(Collider other)
     {
-        try
+
+		other.gameObject.GetComponent<DmgObjetc>().TakeDmg(dmg);
+        /**try
         {
             //  other.gameObject.GetComponent<tdmg>().takeDmg(dmg);
             other.gameObject.GetComponent<DmgObjetc>().TakeDmg(dmg);
@@ -40,7 +42,7 @@ public class AsteDmg : MonoBehaviour {
         catch
         {
             Debug.Log("no hay daño");
-        }
+        }*/
     }
 
 }

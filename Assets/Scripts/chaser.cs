@@ -28,8 +28,9 @@ public class chaser : MonoBehaviour,DmgObjetc {
 
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
-	public string ChaserAttackEvent; // Event Player Attack
-	public string ChaserMoveEvent; // Event Player Move 
+	public string chaserAttackEvent; // Event Player Attack
+	public string chaserMoveEvent; // Event Player Move 
+	public string chaserDamageEvent; // Event Chaser Damage 
 
     // Use this for initialization
     void Start()
@@ -53,8 +54,9 @@ public class chaser : MonoBehaviour,DmgObjetc {
 		
 
 		/* Initialization for Audio Events */
-		ChaserAttackEvent = "event:/Enemies/Chaser/Attack"; // Event Attack 
-		ChaserMoveEvent = "event:/Enemies/Chaser/Move"; // Event Move
+		chaserAttackEvent = "event:/Enemies/Chaser/Attack"; // Event Attack 
+		chaserMoveEvent = "event:/Enemies/Chaser/Move"; // Event Move
+		chaserDamageEvent = "event:/Enemies/Chaser/Damage"; // Event Damage
 
     }
 
@@ -73,9 +75,6 @@ public class chaser : MonoBehaviour,DmgObjetc {
             agent.destination = player.GetComponent<Transform>().position;
             chase = true;
             anim.SetBool("run", true);
-
-			FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(ChaserMoveEvent); // Create a instance of the sound event 
-			e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
             dis = Vector3.Distance(trans.position, player.transform.position);
             if (dis<=agent.stoppingDistance)
@@ -102,6 +101,43 @@ public class chaser : MonoBehaviour,DmgObjetc {
             
         }
 	}
+
+	/**
+	 * Sound Methods
+	 **/
+
+	//Hace que suene el sonido cuando es atacado
+	public void DamageSound()
+	{
+		FMODUnity.RuntimeManager.PlayOneShot(chaserDamageEvent, transform.position);
+
+	}
+
+	//Hace que suene el sonido del movimiento
+	public void MoveSound()
+	{
+
+		FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(chaserMoveEvent); // Create a instance of the sound event 
+		e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
+
+		e.start();
+		e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
+
+	}
+
+	//Hace que suene el sonido del ataque
+	public void AttackSound()
+	{
+
+		FMODUnity.RuntimeManager.PlayOneShot (chaserAttackEvent, transform.position);
+
+	}
+
+
+	/**
+	 * Other Methods
+	 **/
+
 
     private IEnumerator attime()
     {
