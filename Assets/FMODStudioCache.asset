@@ -32,7 +32,11 @@ MonoBehaviour:
   - {fileID: 114376213593747996}
   MasterBankRef: {fileID: 114898698999315026}
   StringsBankRef: {fileID: 114080110133834582}
+<<<<<<< HEAD
   stringsBankWriteTime: 636405726726608355
+=======
+  stringsBankWriteTime: 636405739160000000
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   cacheVersion: 2
 --- !u!114 &114000811340329830
 MonoBehaviour:
@@ -203,8 +207,13 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
+<<<<<<< HEAD
   - {fileID: 114812338745282284}
   - {fileID: 114309626146811238}
+=======
+  - {fileID: 114305166391841294}
+  - {fileID: 114302179571381854}
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114041924395663450
@@ -323,8 +332,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Path: Sound\Build\Desktop\Master Bank.strings.bank
   lastModified: 636405726726608355
+=======
+  Path: Sound/Build/Desktop/Master Bank.strings.bank
+  lastModified: 636405739160000000
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   LoadResult: 0
   FileSizes:
   - Name: Desktop
@@ -520,6 +534,51 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114158119792332376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114161612523479818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Running
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114165539579651224
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Running
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114166491648479294
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -554,8 +613,13 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
+<<<<<<< HEAD
   - {fileID: 114187754294646176}
   - {fileID: 114746926414442352}
+=======
+  - {fileID: 114206696288383622}
+  - {fileID: 114158119792332376}
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114176278768568944
@@ -588,7 +652,11 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+<<<<<<< HEAD
 --- !u!114 &114187754294646176
+=======
+--- !u!114 &114189783957883882
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -599,7 +667,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: Running
+=======
+  Name: Mundo
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   Min: 0
   Max: 1
   Default: 0
@@ -630,6 +702,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114206696288383622
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Running
   Min: 0
   Max: 1
   Default: 0
@@ -708,7 +795,11 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+<<<<<<< HEAD
 --- !u!114 &114260413054491716
+=======
+--- !u!114 &114253650950098502
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -719,7 +810,26 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: Mundo
+=======
+  Name: Running
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114281069968140284
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   Min: 0
   Max: 1
   Default: 0
@@ -735,6 +845,51 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Running
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114292310061611722
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114302179571381854
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114305166391841294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
   Min: 0
   Max: 1
   Default: 0
@@ -945,7 +1100,11 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+<<<<<<< HEAD
 --- !u!114 &114409607684432588
+=======
+--- !u!114 &114421165709838318
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -956,7 +1115,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: Ice
+=======
+  Name: Running
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   Min: 0
   Max: 1
   Default: 0
@@ -1048,11 +1211,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Path: /Users/felipesalas/Documents/GitHub/OneMonthGameJam2017/Sound/Build/Desktop/Master
     Bank.bank
-  lastModified: 636405716660000000
+  lastModified: 636405739160000000
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 23953728
+    Value: 23955392
   Exists: 1
 --- !u!114 &114480094232307442
 MonoBehaviour:
@@ -1096,6 +1259,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114490018943826364
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
   Min: 0
   Max: 1
   Default: 0
@@ -1351,6 +1529,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114548009834762964
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114562708807501892
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1385,8 +1578,13 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
+<<<<<<< HEAD
   - {fileID: 114409607684432588}
   - {fileID: 114738791231237910}
+=======
+  - {fileID: 114281069968140284}
+  - {fileID: 114656319190582112}
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114572741824706540
@@ -1569,6 +1767,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114656319190582112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Running
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114661363202828390
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1581,6 +1794,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114688174871031956
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
   Min: 0
   Max: 1
   Default: 0
@@ -1708,7 +1936,11 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+<<<<<<< HEAD
 --- !u!114 &114746926414442352
+=======
+--- !u!114 &114748295967810098
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -1719,7 +1951,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+<<<<<<< HEAD
   Name: Ice
+=======
+  Name: Mundo
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   Min: 0
   Max: 1
   Default: 0
@@ -1787,8 +2023,13 @@ MonoBehaviour:
   Is3D: 1
   IsOneShot: 1
   Parameters:
+<<<<<<< HEAD
   - {fileID: 114540616130605810}
   - {fileID: 114234885416906252}
+=======
+  - {fileID: 114292310061611722}
+  - {fileID: 114161612523479818}
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   MinDistance: 1
   MaxDistance: 20
 --- !u!114 &114786436235087492
@@ -1963,8 +2204,13 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
+<<<<<<< HEAD
   - {fileID: 114213445554517446}
   - {fileID: 114260413054491716}
+=======
+  - {fileID: 114993954825258692}
+  - {fileID: 114957185799304366}
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
   MinDistance: 0
   MaxDistance: 0
 --- !u!114 &114838558988224394
@@ -2108,7 +2354,11 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+<<<<<<< HEAD
 --- !u!114 &114898698999315026
+=======
+--- !u!114 &114900866277452094
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
@@ -2116,6 +2366,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
+<<<<<<< HEAD
   m_Script: {fileID: 11500000, guid: c18180ecb35941f4682ae60107b85b7c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
@@ -2127,6 +2378,15 @@ MonoBehaviour:
   - Name: Desktop
     Value: 23953728
   Exists: 1
+=======
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
+>>>>>>> c08ba0901b3c05efa83dd09ac18c98b6a0c9cc87
 --- !u!114 &114902641112377152
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2227,6 +2487,21 @@ MonoBehaviour:
   Min: 0
   Max: 1
   Default: 0
+--- !u!114 &114947950187857422
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Ice
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114955918077422006
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2264,6 +2539,21 @@ MonoBehaviour:
   - Name: Desktop
     Value: 23202720
   Exists: 0
+--- !u!114 &114957185799304366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
 --- !u!114 &114967843388876406
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2402,6 +2692,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Name: Mundo
+  Min: 0
+  Max: 1
+  Default: 0
+--- !u!114 &114993954825258692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Name: lvl2
   Min: 0
   Max: 1
   Default: 0
