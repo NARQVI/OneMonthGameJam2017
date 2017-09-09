@@ -76,15 +76,6 @@
     <Reference Include="UnityEngine.HoloLens">
       <HintPath>Library\UnityAssemblies\UnityEngine.HoloLens.dll</HintPath>
     </Reference>
-    <Reference Include="Mono.Cecil">
-      <HintPath>Library\UnityAssemblies\Mono.Cecil.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Xcode">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Xcode.dll</HintPath>
-    </Reference>
-    <Reference Include="UnityEditor.iOS.Extensions.Common">
-      <HintPath>Library\UnityAssemblies\UnityEditor.iOS.Extensions.Common.dll</HintPath>
-    </Reference>
     <Reference Include="Facebook.Unity.Settings">
       <HintPath>Library\FacebookSDK\Facebook.Unity.Settings.dll</HintPath>
     </Reference>
@@ -117,6 +108,7 @@
     <Compile Include="Assets\Scripts\HideObjects.cs" />
     <Compile Include="Assets\Scripts\LifeFeedBack.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />
+    <Compile Include="Assets\Scripts\MenuManagerScript.cs" />
     <Compile Include="Assets\Scripts\MoveBullet.cs" />
     <Compile Include="Assets\Scripts\MusicController.cs" />
     <Compile Include="Assets\Scripts\NpcControler.cs" />
@@ -124,6 +116,7 @@
     <Compile Include="Assets\Scripts\perseguirAI.cs" />
     <Compile Include="Assets\Scripts\Playercheck.cs" />
     <Compile Include="Assets\Scripts\PlayerController.cs" />
+    <Compile Include="Assets\Scripts\ScrollScript.cs" />
     <Compile Include="Assets\Scripts\shatterOnCollision.cs" />
     <Compile Include="Assets\Scripts\SpikesSound.cs" />
     <Compile Include="Assets\Scripts\SurfaceController.cs" />
