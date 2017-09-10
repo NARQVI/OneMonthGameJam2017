@@ -86,7 +86,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 		if (Input.GetMouseButtonDown(0))    //Check if left mouse button is down
         {
             Attack();   //Calls attack method
-            Debug.LogError("quizasww");
+           
             wepon.GetComponent<AsteDmg>().attack();
         }
 	
@@ -98,10 +98,14 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
         float horizontal = Input.GetAxisRaw("Horizontal");  //Get horizontal input
         float vertical = Input.GetAxisRaw("Vertical");      //Get vertical input
 		bool running = Input.GetKey(KeyCode.LeftShift);
-        
-		Move(horizontal,vertical,running);  //Calls Move method
 
-		Turning ();
+        if (Input.GetKey("w")) 
+		Move(1,vertical,running);  //Calls Move method
+
+        if (Input.GetKey("s"))
+            Move(-1, vertical, running);
+
+        Turning ();
     }
 
 	/**
@@ -164,9 +168,17 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
         movement = rightMovement + upMovement;  
         movement = movement.normalized * moveActualSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
-		
+        if(h==1)
+        {
+            GetComponent<Transform>().position += GetComponent<Transform>().forward * Time.deltaTime * moveSpeed;
+        }
+        else
+        {
+            GetComponent<Transform>().position -= GetComponent<Transform>().forward * Time.deltaTime * moveSpeed;
+        }
+       
 
-		rb.MovePosition(transform.position+movement);   //Moves the object
+        //rb.MovePosition(transform.position+movement);   //Moves the object
         animator.SetFloat("Velocity",Mathf.Abs(Input.GetAxisRaw("Horizontal"))+Mathf.Abs( Input.GetAxisRaw("Vertical"))); //Set the value of "Velocity" in the animator
 		animator.SetBool ("Run",running);
 
