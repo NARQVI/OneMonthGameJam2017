@@ -4,24 +4,23 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class chaser : MonoBehaviour,DmgObjetc {
-
-    public EnemyValues EnamyData;
+   
+    public EnemyValues enemy;   
     public int num = 0;
-    [SerializeField] private int life; // atributo de vida
-    [SerializeField] private int attackpower;
+    public int life; // atributo de vida
     public LayerMask lay; 
     public GameObject player; // el jugador
     public bool rand = false;
     GameObject currentTarget;
     public bool chase = false;
     public bool attack = false;
-    [SerializeField] private float recoverytiem; // modela los frames de invulneravilidad
+    public float recoverytiem; // modela los frames de invulneravilidad
     NavMeshAgent agent;
     [SerializeField] bool recob;
     [SerializeField] private Collider[] Cchase;
-    [SerializeField] private Collider[] Cview;
-    [SerializeField] private float chasedistace;
-    [SerializeField] private float viewdistance;
+    [SerializeField] private Collider[] cview;
+    [SerializeField] private float view;
+    [SerializeField] private float chases;
     private Transform trans;
     private Animator anim;
     public float dis;
@@ -39,18 +38,18 @@ public class chaser : MonoBehaviour,DmgObjetc {
     void Start()
     {
         //inicializacion de variable
-        
-        life = EnamyData.life;
-        attackpower = EnamyData.attack;
-        recoverytiem = EnamyData.recoverytime;
-        chasedistace = EnamyData.chasedistance;
-        viewdistance = EnamyData.viewdistance;
+        life = enemy.life;
+        chases = enemy.chasedistance;
+        view = enemy.viewdistance;
+        recoverytiem = enemy.recoverytime;
         anim = GetComponent<Animator>();
         trans = GetComponent<Transform>();
         player = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
-        agent.acceleration = EnamyData.speed;
-        agent.stoppingDistance = EnamyData.attackrange;
+        agent.acceleration = enemy.acceleration;
+        agent.speed = enemy.maxspeed;
+        agent.stoppingDistance = enemy.attackrange;
+
         recob = false;
 
 		var children = gameObject.GetComponentsInChildren<Transform> ();
@@ -76,17 +75,12 @@ public class chaser : MonoBehaviour,DmgObjetc {
        if(life>=0)
         {
 
-        Cchase = Physics.OverlapSphere(trans.position, chasedistace, lay);
-        Cview = Physics.OverlapSphere(trans.position, viewdistance, lay);
-        if(Cview.Length !=0 && Cchase.Length == 0 && !attack)
-            {
-                Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
-                trans.LookAt(look);
-            }
-
-            if (Cchase.Length!=0 && !attack)
+        Cchase = Physics.OverlapSphere(trans.position, chases, lay);
+        cview = Physics.OverlapSphere(trans.position, view, lay);
+        if (Cchase.Length!=0 && !attack)
         {
-
+            //Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
+            //trans.LookAt(look);
             // trans.position += trans.forward * Time.deltaTime * 2;
             agent.destination = player.GetComponent<Transform>().position;
             chase = true;
@@ -104,8 +98,8 @@ public class chaser : MonoBehaviour,DmgObjetc {
         else
         {
             agent.destination = trans.position;
-             anim.SetBool("run", false);
-        }
+               anim.SetBool("run", false);
+            }
 
         }
        else
@@ -208,17 +202,4 @@ public class chaser : MonoBehaviour,DmgObjetc {
             StartCoroutine(rectime());
         }
     }
-    public int getatdmg()
-    {
-        return attackpower;
-    }
-    private void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        //Use the same vars you use to draw your Overlap SPhere to draw your Wire Sphere.
-        Gizmos.DrawWireSphere(trans.position, chasedistace);
-
-   
-    }
 }
-
