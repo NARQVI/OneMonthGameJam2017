@@ -5,16 +5,19 @@ using UnityEngine;
 public class swordhit : MonoBehaviour {
 
 
-    public int dmg;
+   [SerializeField] private int dmg;
+    public EnemyValues EnemyData;
     public GameObject player;
     private int cont;
 	// Use this for initialization
 	void Start () {
         player = GameObject.Find("Player");
-	}
-	
-	// Update is called once per frame
-	void Update () {
+
+     
+        dmg = EnemyData.attack;
+    }
+    // Update is called once per frame
+    void Update () {
 		
 	}
     private void OnTriggerEnter(Collider other)
