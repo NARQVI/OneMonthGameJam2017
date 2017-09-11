@@ -9,42 +9,48 @@ public class HideObjects : MonoBehaviour
     public Transform WatchTarget;
     public LayerMask OccluderMask;
 
-    private List<Transform> _LastTransforms;
+	private RaycastHit[] hits;
 
     void Start()
     {
-        _LastTransforms = new List<Transform>();
+		hits = null;
     }
 
     void Update()
     {
-        //reset and clear all the previous objects
-        if (_LastTransforms.Count > 0)
-        {
-            foreach (Transform t in _LastTransforms)
-                t.GetComponent<MeshRenderer>().enabled = true;
-            _LastTransforms.Clear();
-        }
 
-        //Cast a ray from this object's transform the the watch target's transform.
-        RaycastHit[] hits = Physics.RaycastAll(
-            transform.position,
-            WatchTarget.transform.position - transform.position,
-            Vector3.Distance(WatchTarget.transform.position, transform.position),
-            OccluderMask
-        );
+		Debug.DrawRay (WatchTarget.position,transform.position-WatchTarget.position,Color.magenta);
 
-        //Loop through all overlapping objects and disable their mesh renderer
-        if (hits.Length > 0)
-        {
-            foreach (RaycastHit hit in hits)
-            {
-                if (hit.collider.gameObject.transform != WatchTarget && hit.collider.transform.root != WatchTarget)
-                {
-                    hit.collider.gameObject.GetComponent<MeshRenderer>().enabled = false;
-                    _LastTransforms.Add(hit.collider.gameObject.transform);
-                }
-            }
-        }
+		if (hits != null) {
+			foreach (RaycastHit hit in hits) 
+			{
+				Material[] actualMat = hit.collider.gameObject.GetComponent<Renderer>().materials;
+
+				foreach (Material m in actualMat) {
+					Color matColor = m.color;
+					matColor.a = 1f;
+					m.color = matColor;
+				}
+			}
+		}
+
+		hits = Physics.RaycastAll (WatchTarget.position,transform.position-WatchTarget.position,
+			Vector3.Distance(WatchTarget.position,transform.position)*2.5f,OccluderMask);
+
+
+
+		foreach (RaycastHit hit in hits) 
+		{
+			Material[] actualMat = hit.collider.gameObject.GetComponent<Renderer>().materials;
+
+			foreach (Material m in actualMat) {
+				Color matColor = m.color;
+				matColor.a = 0.2f;
+				m.color = matColor;
+			}
+				
+		}
     }
+
+
 }
