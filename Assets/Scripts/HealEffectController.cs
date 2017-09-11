@@ -16,17 +16,17 @@ public class HealEffectController : MonoBehaviour {
 	}
 		
 
-	void OnCollisionEnter(Collision other)
+	void OnTriggerEnter(Collider other)
 	{
-		if (other.collider.CompareTag ("Player")) {
+		if (other.CompareTag ("Player")) {
 			var pSystemEmission = pSystem.emission;	//Guarda el modulo de emisión
 			pSystemEmission.enabled = true;	//Activa la emisión
 		}
 	}
 
-	void OnCollisionExit(Collision other)
+	void OnTriggerExit(Collider other)
 	{
-		if (other.collider.CompareTag ("Player")) 
+		if (other.CompareTag ("Player")) 
 		{
 			var pSystemEmission = pSystem.emission;	//Guarda el modulo de emisión
 			pSystemEmission.enabled = false;	//Activa la emisión
