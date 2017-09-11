@@ -224,6 +224,7 @@ ModelImporter:
     7400010: Armature|RUN
     7400012: Armature|WALK
     7400014: Armature|WALK (1)
+    7400016: Armature|RUN (1)
     9500000: //RootNode
     13700000: CALZONES
     13700002: MINO
@@ -252,10 +253,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|WALK (1)
-      takeName: Armature|WALK
+      name: Armature|RUN (1)
+      takeName: Armature|RUN
       firstFrame: 0
-      lastFrame: 32
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -274,7 +275,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.45879734
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.96436524
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -330,7 +347,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.14699331
+        functionName: DamageSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -358,7 +383,15 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.16035636
+        functionName: DamageSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}
@@ -442,7 +475,23 @@ ModelImporter:
       mirror: 0
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
-      events: []
+      events:
+      - time: 0.4855234
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.96436524
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
       transformMask: []
       maskType: 3
       maskSource: {instanceID: 0}

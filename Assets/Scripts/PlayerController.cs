@@ -120,15 +120,15 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 	}
 
 	//Hace que suene el sonido del movimiento
-	public void MoveSound()
+	public void MoveSound(int velocidad)
 	{
 		
 		FMOD.Studio.EventInstance e = FMODUnity.RuntimeManager.CreateInstance(playerMoveEvent); // Create a instance of the sound event 
 		e.set3DAttributes(FMODUnity.RuntimeUtils.To3DAttributes(transform.position)); // Give the position to correct listing in the stereo image
 
-		if (moveActualSpeed == runSpeed)
+		if (velocidad == 1)
 			e.setParameterValue ("Running", 1f); // Change the parameter when the player move on ice surface
-		else if (moveActualSpeed == moveSpeed)
+		else if (velocidad == 0)
 			e.setParameterValue ("Running", 0f); // Change the parameter when the player move on a diferent surface
 
 		e.start();
@@ -199,7 +199,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 			e.release();//Release each event instance immediately, there are fire and forget, one-shot instances. 
 			*/
 
-			MoveSound ();
+			//MoveSound ();
 
 		}
 
@@ -209,7 +209,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
     void Attack()
     {
         animator.SetTrigger("Attack"); //Sets the animation
-		AttackSound();
+		//AttackSound();
     }
 
     //Makes the calculation for a hit to the player given for an enemy
@@ -221,7 +221,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
         	life -= hit;
 			InstantiateLifeFeedBack (-hit);
             StartCoroutine(recovery());
-			DamageSound (); // Play Damage Sound
+			//DamageSound (); // Play Damage Sound
         }
         lifeText.text = "Vida: " + life;
 		lifeSlider.value = life;

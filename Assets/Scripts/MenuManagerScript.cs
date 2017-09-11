@@ -5,10 +5,25 @@ using UnityEngine.SceneManagement;
 
 public class MenuManagerScript : MonoBehaviour {
 
+
 	public void startTextScene()
 	{
-		
-		SceneManager.LoadScene (1);
+		StartCoroutine(AguanteElBollo()); 
+	}
 
+	//Hace que suene el sonido del boton, recibe por parametro el path del evento en FMOD
+	public void PlaySound(string path)
+	{
+
+		FMODUnity.RuntimeManager.PlayOneShot (path);
+
+	}
+
+	//Segundos para que suene el sonido del boton :V
+	IEnumerator AguanteElBollo()
+	{
+		
+		yield return new WaitForSeconds(1);
+		SceneManager.LoadScene (1);
 	}
 }
