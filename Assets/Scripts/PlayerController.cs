@@ -98,8 +98,12 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
         float horizontal = Input.GetAxisRaw("Horizontal");  //Get horizontal input
         float vertical = Input.GetAxisRaw("Vertical");      //Get vertical input
 		bool running = Input.GetKey(KeyCode.LeftShift);
-	
-		Move (horizontal, vertical, running);
+
+        if (Input.GetKey("w")) 
+		Move(1,vertical,running);  //Calls Move method
+
+        if (Input.GetKey("s"))
+            Move(-1, vertical, running);
 
         Turning ();
     }
@@ -159,14 +163,25 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 		else
 			moveActualSpeed = moveSpeed;
 		
-		Vector3 upMovement = transform.forward * moveActualSpeed * Time.deltaTime *v;
+		Vector3 rightMovement = Vector3.back * moveActualSpeed * Time.deltaTime *h; //Calculates vectors to get the right feel in an isometric
+		Vector3 upMovement = Vector3.right * moveActualSpeed * Time.deltaTime *v;
 
-		rb.MovePosition (transform.position + upMovement);
+        movement = rightMovement + upMovement;  
+        movement = movement.normalized * moveActualSpeed*Time.deltaTime; //Normalized for given the player the same velocity when two keys are press
+        if(h==1)
+        {
+            GetComponent<Transform>().position += GetComponent<Transform>().forward * Time.deltaTime * moveSpeed;
+        }
+        else
+        {
+            GetComponent<Transform>().position -= GetComponent<Transform>().forward * Time.deltaTime * moveSpeed;
+        }
        
-		if (h == 0) {
-			animator.SetFloat ("Velocity", Mathf.Abs (Input.GetAxisRaw ("Horizontal")) + Mathf.Abs (Input.GetAxisRaw ("Vertical"))); //Set the value of "Velocity" in the animator
-			animator.SetBool ("Run", running);
-		}
+
+        //rb.MovePosition(transform.position+movement);   //Moves the object
+        animator.SetFloat("Velocity",Mathf.Abs(Input.GetAxisRaw("Horizontal"))+Mathf.Abs( Input.GetAxisRaw("Vertical"))); //Set the value of "Velocity" in the animator
+		animator.SetBool ("Run",running);
+
 
 		if (h != 0 || v != 0) {
 
