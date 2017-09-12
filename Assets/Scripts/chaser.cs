@@ -6,14 +6,16 @@ using UnityEngine.AI;
 public class chaser : MonoBehaviour,DmgObjetc {
    
     public EnemyValues enemy;   
-    public int num = 0;
+    public int num;
     public int life; // atributo de vida
     public LayerMask lay; 
     public GameObject player; // el jugador
     public bool rand = false;
-    GameObject currentTarget;
+    public bool patrol;
+    [SerializeField] private GameObject currentTarget;
     public bool chase = false;
     public bool attack = false;
+    public GameObject[] waypoints;
     public float recoverytiem; // modela los frames de invulneravilidad
     NavMeshAgent agent;
     [SerializeField] bool recob;
@@ -23,6 +25,7 @@ public class chaser : MonoBehaviour,DmgObjetc {
     [SerializeField] private float chases;
     private Transform trans;
     private Animator anim;
+    private int waypointtarget;
     public float dis;
 
 	public GameObject lifeFeedBack;
@@ -39,6 +42,8 @@ public class chaser : MonoBehaviour,DmgObjetc {
     {
         //inicializacion de variable
         life = enemy.life;
+        waypointtarget = 0;
+        num = 0;
         chases = enemy.chasedistance;
         view = enemy.viewdistance;
         recoverytiem = enemy.recoverytime;
@@ -72,16 +77,22 @@ public class chaser : MonoBehaviour,DmgObjetc {
 
     // Update is called once per frame
     void Update () {
-       if(life>=0)
+      
+       if(life>0)
         {
-
+ 
+        
         Cchase = Physics.OverlapSphere(trans.position, chases, lay);
         cview = Physics.OverlapSphere(trans.position, view, lay);
-        if (Cchase.Length!=0 && !attack)
-        {
-            //Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
-            //trans.LookAt(look);
-            // trans.position += trans.forward * Time.deltaTime * 2;
+        if(cview.Length!=0 && Cchase.Length==0)
+            {
+                Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
+                agent.destination = trans.position;
+                anim.SetBool("run", false);
+                trans.LookAt(look);
+            }
+            if (Cchase.Length!=0 && !attack)
+           {
             agent.destination = player.GetComponent<Transform>().position;
             chase = true;
             anim.SetBool("run", true);
@@ -97,28 +108,57 @@ public class chaser : MonoBehaviour,DmgObjetc {
         }
         else
         {
-            agent.destination = trans.position;
-               anim.SetBool("run", false);
-            }
+                if (patrol && Cchase.Length == 0 && cview.Length == 0)
+                {
+                    float distance = Vector3.Distance(trans.position, waypoints[num].transform.position);
+                    if (distance >= agent.stoppingDistance)
+                    {
+                        agent.destination = waypoints[num].transform.position;
+
+                        anim.SetBool("run", true);
+                    }
+                    else
+                    {
+                        if (num + 1 == waypoints.Length)
+                        {
+                            num = 0;
+                        }
+                        else
+                        {
+                            num++;
+                        }
+                    }
+
+                }
+                else
+                {
+                    agent.destination = trans.position;
+                    anim.SetBool("run", false);
+                }
+      
+         }
 
         }
-       else
+
+
+	
+        else
 
         {
             anim.SetBool("run", false);
             anim.SetBool("attack", false);
             anim.SetBool("alive", false);
             StartCoroutine(destroid());
-            
-        }
-	}
 
-	/**
+        }
+    }
+
+    /**
 	 * Sound Methods
 	 **/
 
-	//Hace que suene el sonido cuando es atacado
-	public void DamageSound()
+    //Hace que suene el sonido cuando es atacado
+    public void DamageSound()
 	{
 		FMODUnity.RuntimeManager.PlayOneShot(chaserDamageEvent, transform.position);
 
@@ -202,4 +242,7 @@ public class chaser : MonoBehaviour,DmgObjetc {
             StartCoroutine(rectime());
         }
     }
+
+
+
 }
