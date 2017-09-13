@@ -42,7 +42,7 @@ MonoBehaviour:
   ambientOcclusion:
     m_Enabled: 1
     m_Settings:
-      intensity: 3.87
+      intensity: 1.98
       radius: 35.04
       sampleCount: 10
       downsampling: 1
@@ -94,8 +94,8 @@ MonoBehaviour:
       adaptationType: 0
       speedUp: 2
       speedDown: 1
-      logMin: -6
-      logMax: 6
+      logMin: -3
+      logMax: 1
   bloom:
     m_Enabled: 1
     m_Settings:
@@ -121,11 +121,11 @@ MonoBehaviour:
         neutralWhiteClip: 10
       basic:
         postExposure: 1.12
-        temperature: -30
-        tint: -0.8
+        temperature: -45
+        tint: 7.9
         hueShift: 0
         saturation: 0.811
-        contrast: 1.11
+        contrast: 1.047
       channelMixer:
         red: {x: 1, y: 0, z: 0}
         green: {x: -0.02, y: 1, z: 0}
@@ -299,7 +299,7 @@ MonoBehaviour:
       color: {r: 0, g: 0, b: 0, a: 1}
       center: {x: 0.5, y: 0.5}
       intensity: 0.453
-      smoothness: 0.083
+      smoothness: 0.048
       roundness: 1
       mask: {fileID: 0}
       opacity: 1
