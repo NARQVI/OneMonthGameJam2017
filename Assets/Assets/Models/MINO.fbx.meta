@@ -1,0 +1,549 @@
+fileFormatVersion: 2
+guid: 9b5ad0c62d9b65e4da842723a0eee527
+timeCreated: 1503554961
+licenseType: Free
+ModelImporter:
+  serializedVersion: 21
+  fileIDToRecycleName:
+    100000: Armature
+    100002: Bone MUSLO D
+    100004: Bone MUSLO I
+    100006: "Bone PEZU\xD1A D"
+    100008: "Bone PEZU\xD1A D_end"
+    100010: "Bone PEZU\xD1A I"
+    100012: "Bone PEZU\xD1A I_end"
+    100014: Bone PIERNA D 1
+    100016: Bone PIERNA I 1
+    100018: Bone PRINCIPAL
+    100020: Bone.001
+    100022: Bone.002
+    100024: Bone.002_L.001
+    100026: Bone.002_L.002
+    100028: Bone.002_L.002_end
+    100030: Bone.002_R.001
+    100032: Bone.002_R.002
+    100034: Bone.002_R.002_end
+    100036: Bone.003 H
+    100038: Bone.004
+    100040: Bone.005
+    100042: Bone.006
+    100044: Bone.007
+    100046: Bone.008
+    100048: Bone.009
+    100050: Bone.009_end
+    100052: Bone.010
+    100054: Bone.011
+    100056: Bone.012
+    100058: Bone.012_end
+    100060: Bone.013
+    100062: Bone.014
+    100064: Bone.014_end
+    100066: Bone_L.001
+    100068: Bone_L.002
+    100070: Bone_L.003
+    100072: Bone_L.003_end
+    100074: Bone_L.005
+    100076: Bone_L.005_end
+    100078: Bone_L.006
+    100080: Bone_L.008
+    100082: Bone_L.009
+    100084: Bone_L.015
+    100086: Bone_L.016
+    100088: Bone_L.017
+    100090: Bone_L.017_end
+    100092: Bone_L.018
+    100094: Bone_L.019
+    100096: Bone_L.020
+    100098: Bone_L.020_end
+    100100: Bone_L.021
+    100102: Bone_L.022
+    100104: Bone_L.023
+    100106: Bone_L.023_end
+    100108: Bone_L.024
+    100110: Bone_L.025
+    100112: Bone_L.025_end
+    100114: Bone_L.026
+    100116: Bone_L.027
+    100118: Bone_L.028
+    100120: Bone_L.028_end
+    100122: Bone_L.029
+    100124: Bone_L.030
+    100126: Bone_L.031
+    100128: Bone_L.032
+    100130: Bone_L.033
+    100132: Bone_R.001
+    100134: Bone_R.002
+    100136: Bone_R.003
+    100138: Bone_R.003_end
+    100140: Bone_R.005
+    100142: Bone_R.005_end
+    100144: Bone_R.006
+    100146: Bone_R.008
+    100148: Bone_R.009
+    100150: Bone_R.015
+    100152: Bone_R.016
+    100154: Bone_R.017
+    100156: Bone_R.017_end
+    100158: Bone_R.018
+    100160: Bone_R.019
+    100162: Bone_R.020
+    100164: Bone_R.020_end
+    100166: Bone_R.021
+    100168: Bone_R.022
+    100170: Bone_R.023
+    100172: Bone_R.023_end
+    100174: Bone_R.024
+    100176: Bone_R.025
+    100178: Bone_R.025_end
+    100180: Bone_R.026
+    100182: Bone_R.027
+    100184: Bone_R.028
+    100186: Bone_R.028_end
+    100188: Bone_R.029
+    100190: Bone_R.030
+    100192: Bone_R.031
+    100194: Bone_R.032
+    100196: Bone_R.033
+    100198: CALZONES
+    100200: LUCERO
+    100202: MINO
+    100204: //RootNode
+    400000: Armature
+    400002: Bone MUSLO D
+    400004: Bone MUSLO I
+    400006: "Bone PEZU\xD1A D"
+    400008: "Bone PEZU\xD1A D_end"
+    400010: "Bone PEZU\xD1A I"
+    400012: "Bone PEZU\xD1A I_end"
+    400014: Bone PIERNA D 1
+    400016: Bone PIERNA I 1
+    400018: Bone PRINCIPAL
+    400020: Bone.001
+    400022: Bone.002
+    400024: Bone.002_L.001
+    400026: Bone.002_L.002
+    400028: Bone.002_L.002_end
+    400030: Bone.002_R.001
+    400032: Bone.002_R.002
+    400034: Bone.002_R.002_end
+    400036: Bone.003 H
+    400038: Bone.004
+    400040: Bone.005
+    400042: Bone.006
+    400044: Bone.007
+    400046: Bone.008
+    400048: Bone.009
+    400050: Bone.009_end
+    400052: Bone.010
+    400054: Bone.011
+    400056: Bone.012
+    400058: Bone.012_end
+    400060: Bone.013
+    400062: Bone.014
+    400064: Bone.014_end
+    400066: Bone_L.001
+    400068: Bone_L.002
+    400070: Bone_L.003
+    400072: Bone_L.003_end
+    400074: Bone_L.005
+    400076: Bone_L.005_end
+    400078: Bone_L.006
+    400080: Bone_L.008
+    400082: Bone_L.009
+    400084: Bone_L.015
+    400086: Bone_L.016
+    400088: Bone_L.017
+    400090: Bone_L.017_end
+    400092: Bone_L.018
+    400094: Bone_L.019
+    400096: Bone_L.020
+    400098: Bone_L.020_end
+    400100: Bone_L.021
+    400102: Bone_L.022
+    400104: Bone_L.023
+    400106: Bone_L.023_end
+    400108: Bone_L.024
+    400110: Bone_L.025
+    400112: Bone_L.025_end
+    400114: Bone_L.026
+    400116: Bone_L.027
+    400118: Bone_L.028
+    400120: Bone_L.028_end
+    400122: Bone_L.029
+    400124: Bone_L.030
+    400126: Bone_L.031
+    400128: Bone_L.032
+    400130: Bone_L.033
+    400132: Bone_R.001
+    400134: Bone_R.002
+    400136: Bone_R.003
+    400138: Bone_R.003_end
+    400140: Bone_R.005
+    400142: Bone_R.005_end
+    400144: Bone_R.006
+    400146: Bone_R.008
+    400148: Bone_R.009
+    400150: Bone_R.015
+    400152: Bone_R.016
+    400154: Bone_R.017
+    400156: Bone_R.017_end
+    400158: Bone_R.018
+    400160: Bone_R.019
+    400162: Bone_R.020
+    400164: Bone_R.020_end
+    400166: Bone_R.021
+    400168: Bone_R.022
+    400170: Bone_R.023
+    400172: Bone_R.023_end
+    400174: Bone_R.024
+    400176: Bone_R.025
+    400178: Bone_R.025_end
+    400180: Bone_R.026
+    400182: Bone_R.027
+    400184: Bone_R.028
+    400186: Bone_R.028_end
+    400188: Bone_R.029
+    400190: Bone_R.030
+    400192: Bone_R.031
+    400194: Bone_R.032
+    400196: Bone_R.033
+    400198: CALZONES
+    400200: LUCERO
+    400202: MINO
+    400204: //RootNode
+    2300000: LUCERO
+    3300000: LUCERO
+    4300000: LUCERO
+    4300002: MINO
+    4300004: CALZONES
+    7400000: Armature|ATTACK
+    7400002: Armature|DEATH F
+    7400004: Armature|HIT
+    7400006: Armature|HIT INVERSE
+    7400008: Armature|IDLE
+    7400010: Armature|RUN
+    7400012: Armature|WALK
+    7400014: Armature|WALK (1)
+    7400016: Armature|RUN (1)
+    9500000: //RootNode
+    13700000: CALZONES
+    13700002: MINO
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    extraUserProperties: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Armature|RUN (1)
+      takeName: Armature|RUN
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.45879734
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.96436524
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|DEATH F
+      takeName: Armature|DEATH F
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|HIT
+      takeName: Armature|HIT
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.14699331
+        functionName: DamageSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|HIT INVERSE
+      takeName: Armature|HIT INVERSE
+      firstFrame: 0
+      lastFrame: 21
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.16035636
+        functionName: DamageSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|IDLE
+      takeName: Armature|IDLE
+      firstFrame: 0
+      lastFrame: 180
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 1
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|RUN
+      takeName: Armature|RUN
+      firstFrame: 0
+      lastFrame: 16
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 1
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    - serializedVersion: 16
+      name: Armature|WALK
+      takeName: Armature|WALK
+      firstFrame: 0
+      lastFrame: 32
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events:
+      - time: 0.4855234
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.96436524
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      transformMask: []
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importVisibility: 1
+    importBlendShapes: 1
+    importCameras: 1
+    importLights: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 1
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 0
+    normalImportMode: 1
+    tangentImportMode: 3
+    normalCalculationMode: 4
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
