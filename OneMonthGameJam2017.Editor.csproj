@@ -126,13 +126,13 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="OneMonthGameJam2017.Plugins.csproj">
-      <Project>{ABD3490B-0F7F-3CCE-BEE5-6D5300715DCB}</Project>
-      <Name>OneMonthGameJam2017.Plugins</Name>
-    </ProjectReference>
     <ProjectReference Include="OneMonthGameJam2017.csproj">
       <Project>{BA8A0963-9E50-DDD3-2A2D-70A14FAD07E4}</Project>
       <Name>OneMonthGameJam2017</Name>
+    </ProjectReference>
+    <ProjectReference Include="OneMonthGameJam2017.Plugins.csproj">
+      <Project>{ABD3490B-0F7F-3CCE-BEE5-6D5300715DCB}</Project>
+      <Name>OneMonthGameJam2017.Plugins</Name>
     </ProjectReference>
     <ProjectReference Include="OneMonthGameJam2017.Editor.Plugins.csproj">
       <Project>{5752A0C1-17BF-5F53-8604-E10AA192F438}</Project>
