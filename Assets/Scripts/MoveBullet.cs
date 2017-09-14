@@ -8,7 +8,7 @@ using UnityEngine;
 
 public class MoveBullet : MonoBehaviour {
 
-    public float speed;                 //Moving speed
+	public Vector3 speed;                 //Moving speed
 
     private Rigidbody rigidBody;        //This object rigid body
    
@@ -17,7 +17,7 @@ public class MoveBullet : MonoBehaviour {
     void Start()
     {
         rigidBody = GetComponent<Rigidbody>();
-        rigidBody.velocity = transform.forward * speed;
+		rigidBody.velocity = speed;
     }
 
     //Called when contact with other collider
