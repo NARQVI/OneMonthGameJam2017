@@ -8,13 +8,16 @@ public class ScrollScript : MonoBehaviour {
 
 	bool isScrolling;
 	float rotation;
-	public float maxYlimit = 540f; //Height of rectangle message
+	float skipTimer;
 	GameObject scrollTextGO;
+
 
 	public Text scrollText;
 	public Text continueText;
+	public Text skipText;
 	public float scrollSpeed = 1.0f;
-
+	public float maxYlimit = 540f; //Height of rectangle message
+	public float skipTime = 2.0f;
 
 	//Refencias al sistema de sonido 
 	public GameObject musicSystemObject; 
@@ -25,10 +28,13 @@ public class ScrollScript : MonoBehaviour {
 		Setup ();
 
 		continueText.enabled = false;
+		skipText.enabled = false;
 
 		scrollTextGO = scrollText.gameObject;
 
 		maxYlimit += scrollTextGO.transform.position.y;
+
+		skipTimer = 0f;
 
 		musicSystemObject = GameObject.Find ("MusicManager");
 		musicSystem = musicSystemObject.GetComponent<MusicController>();
@@ -37,6 +43,11 @@ public class ScrollScript : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+		skipTimer += Time.deltaTime;
+
+		if (skipTimer >= skipTime) //Shows skip text after skipTime seconds
+			skipText.enabled = true;
 
 		// If we are scrolling, perform update action
 		if (isScrolling)
@@ -59,11 +70,17 @@ public class ScrollScript : MonoBehaviour {
 
 		if (!isScrolling)
 			continueText.enabled = true;
+
 		
-		if (Input.GetKeyDown (KeyCode.Space) && !isScrolling) {
-			continueText.text="Loading";
-			SceneManager.LoadScene (2);
-			musicSystem.MainMusic ();
+		if (Input.GetKeyDown (KeyCode.Space) ) {
+
+			if (!isScrolling) {
+				continueText.text = "Loading";
+				SceneManager.LoadScene (2);
+				musicSystem.MainMusic ();
+			} 
+			else
+				scrollSpeed*=3;
 		}
 	}
 
