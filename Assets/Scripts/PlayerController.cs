@@ -115,7 +115,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 	}
 
-	//Hace que suene el sonido del movimiento
+	//Hace que suene el sonido del movimiento, 1 == Correr, 0 == caminar
 	public void MoveSound(int velocidad)
 	{
 		

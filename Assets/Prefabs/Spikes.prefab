@@ -158,7 +158,7 @@ GameObject:
   - component: {fileID: 95622146272842462}
   - component: {fileID: 65581987948019198}
   - component: {fileID: 114242027130256468}
-  - component: {fileID: 114963268919255604}
+  - component: {fileID: 114904327738947862}
   m_Layer: 0
   m_Name: Spikes
   m_TagString: Untagged
@@ -855,7 +855,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerDamage: 10
   timeInside: 3
---- !u!114 &114963268919255604
+--- !u!114 &114904327738947862
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -863,17 +863,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1798367449951062}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9a6610d2e704f1648819acc8d7460285, type: 3}
+  m_Script: {fileID: 11500000, guid: 399f97e8f001c409d923ff2eba611a92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Event: event:/Objects/Spikes
-  PlayEvent: 11
-  StopEvent: 12
-  CollisionTag: 
-  AllowFadeout: 1
-  TriggerOnce: 0
-  Preload: 0
-  Params: []
-  OverrideAttenuation: 0
-  OverrideMinDistance: 1
-  OverrideMaxDistance: 20

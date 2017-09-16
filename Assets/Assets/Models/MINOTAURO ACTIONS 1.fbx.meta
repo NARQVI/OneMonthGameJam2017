@@ -223,6 +223,7 @@ ModelImporter:
     7400008: Armature|IDLE
     7400010: Armature|RUN
     7400012: Armature|WALK
+    7400014: Armature|RUN (1)
     9500000: //RootNode
     13700000: CALZONES
     13700002: MINO
@@ -251,10 +252,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|ATTACK
-      takeName: Armature|ATTACK
+      name: Armature|RUN (1)
+      takeName: Armature|RUN
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 16
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -276,6 +277,14 @@ ModelImporter:
       events:
       - time: 0.3986637
         functionName: AttackSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
+        functionName: MoveSound
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
           type: 3}

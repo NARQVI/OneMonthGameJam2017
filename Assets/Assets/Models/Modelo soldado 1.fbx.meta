@@ -1300,6 +1300,7 @@ ModelImporter:
     7400012: rig|Walk final
     7400014: rig|Walk.001
     7400016: rig|Walk.002
+    7400018: rig|Run final (1)
     9500000: //RootNode
     13700000: Casco
     13700002: Casco.001
@@ -1328,10 +1329,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: rig|Attack Idle
-      takeName: rig|Attack Idle
+      name: rig|Run final (1)
+      takeName: rig|Run final
       firstFrame: 0
-      lastFrame: 80
+      lastFrame: 17
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -1351,8 +1352,16 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.47637796
-        functionName: AttackSound
+      - time: 0.09499893
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: e6439701b7e55774a8ad6b7ce2144f43,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0.56855184
+        functionName: MoveSound
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: e6439701b7e55774a8ad6b7ce2144f43,
           type: 3}

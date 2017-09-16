@@ -56,6 +56,7 @@ GameObject:
   - component: {fileID: 4357117726300372}
   - component: {fileID: 95933984520353078}
   - component: {fileID: 114721368917575856}
+  - component: {fileID: 114458492149569922}
   m_Layer: 0
   m_Name: Estatua
   m_TagString: Wall
@@ -256,6 +257,17 @@ Animator:
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
+--- !u!114 &114458492149569922
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1737800201266572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 399f97e8f001c409d923ff2eba611a92, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &114474884576787702
 MonoBehaviour:
   m_ObjectHideFlags: 1

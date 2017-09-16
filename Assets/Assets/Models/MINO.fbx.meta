@@ -253,10 +253,10 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: Armature|RUN (1)
-      takeName: Armature|RUN
+      name: Armature|WALK (1)
+      takeName: Armature|WALK
       firstFrame: 0
-      lastFrame: 16
+      lastFrame: 32
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -276,7 +276,15 @@ ModelImporter:
       bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
       curves: []
       events:
-      - time: 0.45879734
+      - time: 0.0017391305
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 1
+        messageOptions: 0
+      - time: 0.5422756
         functionName: MoveSound
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
@@ -485,6 +493,14 @@ ModelImporter:
         intParameter: 0
         messageOptions: 0
       - time: 0.96436524
+        functionName: MoveSound
+        data: 
+        objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,
+          type: 3}
+        floatParameter: 0
+        intParameter: 0
+        messageOptions: 0
+      - time: 0
         functionName: MoveSound
         data: 
         objectReferenceParameter: {fileID: 11500000, guid: 1a5bf8fe09d6aa94093b214faa64001e,

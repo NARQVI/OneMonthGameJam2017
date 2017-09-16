@@ -2,26 +2,21 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SpikesSound{
-
-
-	private string objectSound; // Refence to  FMOD event
-
+public class ObjectSounds : MonoBehaviour {
 
 	public void AttackSound(string path)
 	{
-	
-		objectSound = path;
 
-		FMODUnity.RuntimeManager.PlayOneShot (objectSound);
+		FMODUnity.RuntimeManager.PlayOneShot (path);
+		Debug.Log ("Acá está el evento " + path);
 
 	}
 
 	public void UseSound(string path)
 	{
-		objectSound = path;
 
-		FMODUnity.RuntimeManager.PlayOneShot (objectSound);
+		FMODUnity.RuntimeManager.PlayOneShot (path);
+		Debug.Log ("Acá está el evento " + path);
 	}
 
 
