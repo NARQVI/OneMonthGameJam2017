@@ -9,7 +9,7 @@ public class shatterOnCollision : MonoBehaviour {
 
     private void OnCollisionEnter(Collision collision)
     {
-		if (collision.collider.CompareTag ("Player")) {
+		if (collision.collider.CompareTag ("PlayerWeapon")) {
 			var shatterReplacement = GameObject.Instantiate (replacement, transform.position + Vector3.up * 1, transform.rotation, transform.parent.transform);
 			Destroy (gameObject);
 			Destroy (shatterReplacement, timeRemove);
