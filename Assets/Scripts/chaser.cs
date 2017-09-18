@@ -10,6 +10,7 @@ public class chaser : MonoBehaviour,DmgObjetc {
     public int life; // atributo de vida
     public LayerMask lay; 
     public GameObject player; // el jugador
+	public DoorController door;
     public bool rand = false;
     public bool patrol;
     [SerializeField] private GameObject currentTarget;
@@ -211,6 +212,7 @@ public class chaser : MonoBehaviour,DmgObjetc {
     private IEnumerator destroid()
     {
         yield return new WaitForSecondsRealtime(5);
+		door.CountEnemy ();
         Destroy(gameObject);
     }
 

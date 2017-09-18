@@ -239,7 +239,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 		}
 
 		//Activa cuando el jugador entra en la estatua de curacion
-		if (other.CompareTag ("Heal")) 
+		if (other.CompareTag ("Heal")&& life<100) 
 		{
 			Heal ();
 		}
@@ -250,7 +250,7 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
 
 	void OnTriggerStay(Collider other)
 	{
-		if (other.CompareTag ("Heal") && Time.time > nextHeal) { //Activa cuando el jugador entra en la estatua de curacion
+		if (other.CompareTag ("Heal") && Time.time > nextHeal && life<100) { //Activa cuando el jugador entra en la estatua de curacion
 			Heal();
 			nextHeal = Time.time + timeToHeal;
 		}
