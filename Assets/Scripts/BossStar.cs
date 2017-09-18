@@ -7,7 +7,7 @@ public class BossStar : MonoBehaviour {
     // Use this for initialization
     public GameObject  boss;
 	void Start () {
-        boss = GameObject.Find("boss1");
+        
 	}
 
     private void OnTriggerEnter(Collider other)

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BossIA : MonoBehaviour,DmgObjetc {
 
@@ -9,17 +10,20 @@ public class BossIA : MonoBehaviour,DmgObjetc {
     public int bossLife; // vida del boss
     public float attackRange; // rango de ataque
     public bool alive; // estado si esta vivo
+    public LayerMask lay;
     [SerializeField] private bool active; // determina si el boss esta activo
     [SerializeField] private GameObject player;
     [SerializeField] private float distance; // distancia del boss a un objeto dado
     private Animator anim;
-
+    private NavMeshAgent agent;
 	/* Atributos de Audio */
 	[FMODUnity.EventRef]
 	public string BossAttackEvent; // Event Player Attack
 	public string BossMoveEvent; // Event Player Move 
 	public string BossDamageEvent; // Event Player Move 
+    [SerializeField] private Collider[] attack;
 
+    public int atp;
     private Transform trans;
 
 	// Use this for initialization
@@ -30,9 +34,10 @@ public class BossIA : MonoBehaviour,DmgObjetc {
         anim = GetComponent<Animator>();
         alive = true;
         anim.SetInteger("life", bossLife);
-
-		/* Initialization for Audio Events */
-		BossAttackEvent = "event:/Enemies/Boss/Attack"; // Event Attack 
+        agent = GetComponent<NavMeshAgent>();
+        atp = 0;
+        /* Initialization for Audio Events */
+        BossAttackEvent = "event:/Enemies/Boss/Attack"; // Event Attack 
 		BossMoveEvent = "event:/Enemies/Boss/Move"; // Event Move
 		BossDamageEvent = "event:/Enemies/Boss/Damage"; // Event Move
     }
@@ -40,51 +45,64 @@ public class BossIA : MonoBehaviour,DmgObjetc {
 	// Update is called once per frame
 	void Update () {
         
+        if(bossLife > 0)
+        {
+
         if (active && alive)
         {
-            distance = Vector3.Distance(trans.position, player.GetComponent<Transform>().position); // distanmcia entre el jugador y el boss
-            if(distance > attackRange)
+            attack = Physics.OverlapSphere(trans.position, 5f, lay);
+            agent.destination = player.GetComponent<Transform>().position;
+            if ( attack.Length!=0)
             {
-
-            Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
-            trans.LookAt(look);
-            trans.position = Vector3.MoveTowards(trans.position, player.GetComponent<Transform>().position, speed);
-            anim.SetBool("walk", true);
-
-			MoveSound ();
-
-            }
-            else if (distance <= attackRange)
-            {
-               float n =Random.Range(-2f, 2f);
-                anim.SetFloat("attack",n);
-				AttackSound ();
-            }
+                    anim.SetBool("walk", false);
+ 
+                    if (atp==0)
+                    {
+                        StartCoroutine(attackrig());
+                    }
+                    else if(atp==1)
+                    {
+                      
+                    }
+                    else if(atp==2)
+                    {
+                        StartCoroutine(attackleft());
+                    }
+                    else
+                    {
+                        atp = 0;
+                    }
+              
+                    agent.destination = trans.position;
+                    // Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
+                    // trans.LookAt(look);
+                    // trans.position = Vector3.MoveTowards(trans.position, player.GetComponent<Transform>().position, speed);
+                  
+                    AttackSound();
+                }
             else
             {
-                anim.SetBool("walk", false);
-            }
+                    agent.destination = player.GetComponent<Transform>().position;
+                    anim.SetBool("walk", true);
+                anim.SetBool("attack1",false);
+                    anim.SetBool("attack2", false);
+                    atp = 0;
+                    MoveSound();
+                }
+ 
    
-            if (bossLife<=0)
-            {
-                alive = false;
-            }
+          
           
         }
-        else if(!alive)
-        {
-            anim.SetBool("walk", false);
-          //  anim.SetBool("death", true);
-            StartCoroutine(destroid());  
+
         }
-			
-	}
-    public void takeDmg(int dmg)
-    {
-        bossLife -= dmg;
-		DamageSound ();
+        else
+        {
+            StartCoroutine(destroid());
+        }
 
     }
+
     public void setActive(bool ss)
     {
         active = ss;
@@ -103,7 +121,8 @@ public class BossIA : MonoBehaviour,DmgObjetc {
 
     public void TakeDmg(int dmg)
     {
-
+        bossLife -= dmg;
+        DamageSound();
     }
 
 	/**
@@ -135,4 +154,19 @@ public class BossIA : MonoBehaviour,DmgObjetc {
 		FMODUnity.RuntimeManager.PlayOneShot(BossAttackEvent, transform.position);
 	}
 
+    private IEnumerator attackrig()
+    {
+        anim.SetBool("attack1", true);
+        yield return new WaitForSecondsRealtime(3);
+        anim.SetBool("attack1", false);
+        atp++;
+    }
+
+    private IEnumerator attackleft()
+    {
+        anim.SetBool("attack2", true);
+        yield return new WaitForSecondsRealtime(3);
+        anim.SetBool("attack2", false);
+        atp++;
+    }
 }
