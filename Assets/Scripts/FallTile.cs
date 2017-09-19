@@ -21,16 +21,17 @@ public class FallTile : MonoBehaviour {
 	void Update () {
 		if (fall)
 			counter += Time.deltaTime;
-		if (counter >= maxWaitTime)
-			rb.AddForce (Vector3.down*force,ForceMode.Impulse);
+		if (counter >= maxWaitTime) {
+			rb.velocity = Vector3.down * force;
+			rb.isKinematic = false;
+		}
 			
 	}
 
 	void OnCollisionEnter(Collision other)
 	{
-
 		if (other.collider.CompareTag ("Player")) {
-			fall = true;	
+			fall = true;
 		}
 	}
 }

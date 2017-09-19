@@ -98,7 +98,10 @@ public class PlayerController : MonoBehaviour,DmgObjetc {
         float horizontal = Input.GetAxisRaw("Horizontal");  //Get horizontal input
         float vertical = Input.GetAxisRaw("Vertical");      //Get vertical input
 		bool running = Input.GetKey(KeyCode.LeftShift);
-	
+
+		if (Mathf.Abs (rb.velocity.y) >= 10)
+			GameManager.instance.GameOver ();
+
 		Move (horizontal, vertical, running);
 
         Turning ();
