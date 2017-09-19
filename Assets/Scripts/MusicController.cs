@@ -58,8 +58,8 @@ public class MusicController : MonoBehaviour {
 
 
 
-		valuelvl2 = musicEv.getParameterValue ("lvl2");
-		valuemundo = musicEv.getParameterValue ("Mundo");
+	//	valuelvl2 = musicEv.getParameterValue ("lvl2");
+	//	valuemundo = musicEv.getParameterValue ("Mundo");
 
 		musicEv.setParameterValue ("lvl2", 0f);
 		musicEv.setParameterValue ("Mundo", 0f);
