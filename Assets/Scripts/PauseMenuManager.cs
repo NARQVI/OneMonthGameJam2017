@@ -11,9 +11,17 @@ public class PauseMenuManager : MonoBehaviour {
 	bool isPaused;
 	bool isQuit;
 
+	//Referencias al control de la música
+	private GameObject musicSystemObject;
+	public MusicController musicSystem;
+
 	// Use this for initialization
 	void Start () {
 		SetUp ();
+
+		//Referencias al control de la música
+		musicSystemObject = GameObject.Find ("MusicManager");
+		musicSystem = musicSystemObject.GetComponent<MusicController>();
 	}
 	
 	// Update is called once per frame
@@ -35,6 +43,7 @@ public class PauseMenuManager : MonoBehaviour {
 			Pause ();
 			isQuit = true;
 			SceneManager.LoadScene (0);
+			musicSystem.BackToMusic ();
 		}
 	}
 
@@ -55,6 +64,7 @@ public class PauseMenuManager : MonoBehaviour {
 		bkgImage.enabled = isPaused;
 		pauseText.SetActive (isPaused);
 		Time.timeScale = isPaused ? 0 : 1;
+		musicSystem.MenuMusic ();
 	}
 		
 }

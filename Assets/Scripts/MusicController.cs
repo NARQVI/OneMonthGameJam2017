@@ -13,6 +13,10 @@ public class MusicController : MonoBehaviour {
 	FMOD.Studio.EventInstance musicEv; // Instancia del evento de la música
 
 
+	float valuelvl2 = -1; //Número para saber a que música volver despues de la pausa
+	float valuemundo = -1; //Número para saber a que música volver despues de la pausa
+
+
 	private void Awake() {
 
 
@@ -48,6 +52,28 @@ public class MusicController : MonoBehaviour {
 
 		musicEv.setParameterValue ("lvl2", 1f);
 		musicEv.setParameterValue ("Mundo", 0f);
+	}
+
+	public void MenuMusic(){
+
+
+
+		valuelvl2 = musicEv.getParameterValue ("lvl2");
+		valuemundo = musicEv.getParameterValue ("Mundo");
+
+		musicEv.setParameterValue ("lvl2", 0f);
+		musicEv.setParameterValue ("Mundo", 0f);
+		//Falta agregar la música del menu de pausa
+
+	}
+
+
+	//Vuelve a la música al modo normal
+	public void BackToMusic(){
+
+		musicEv.setParameterValue ("lvl2", valuelvl2);
+		musicEv.setParameterValue ("Mundo", valuemundo);
+
 	}
 
 
