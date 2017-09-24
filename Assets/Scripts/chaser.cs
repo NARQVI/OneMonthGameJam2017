@@ -85,13 +85,16 @@ public class chaser : MonoBehaviour,DmgObjetc {
         
         Cchase = Physics.OverlapSphere(trans.position, chases, lay);
         cview = Physics.OverlapSphere(trans.position, view, lay);
+
         if(cview.Length!=0 && Cchase.Length==0)
             {
                 Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
                 agent.destination = trans.position;
+                anim.SetBool("alert", true);
                 anim.SetBool("run", false);
                 trans.LookAt(look);
             }
+ 
             if (Cchase.Length!=0 && !attack)
            {
             agent.destination = player.GetComponent<Transform>().position;
@@ -116,7 +119,7 @@ public class chaser : MonoBehaviour,DmgObjetc {
                     {
                         agent.destination = waypoints[num].transform.position;
 
-                        anim.SetBool("run", true);
+                        anim.SetBool("caminar", true);
                     }
                     else
                     {
@@ -134,7 +137,7 @@ public class chaser : MonoBehaviour,DmgObjetc {
                 else
                 {
                     agent.destination = trans.position;
-                    anim.SetBool("run", false);
+                    anim.SetBool("caminar", false);
                 }
       
          }
@@ -146,9 +149,11 @@ public class chaser : MonoBehaviour,DmgObjetc {
         else
 
         {
-            anim.SetBool("run", false);
-            anim.SetBool("attack", false);
-            anim.SetBool("alive", false);
+            anim.SetBool("caminar", false);
+            anim.SetBool("attack1", false);
+          //  anim.SetBool("alert", false);
+      
+            // anim.SetBool("alive", false);
             StartCoroutine(destroid());
 
         }
@@ -193,10 +198,10 @@ public class chaser : MonoBehaviour,DmgObjetc {
 
     private IEnumerator attime()
     {
-            anim.SetBool("attack", true);
+            anim.SetBool("attack1", true);
             attack = true;
             yield return new WaitForSeconds(2.3f);
-            anim.SetBool("attack", false);
+            anim.SetBool("attack1", false);
      
         attack = false;
         
@@ -238,13 +243,19 @@ public class chaser : MonoBehaviour,DmgObjetc {
     {
         if (!recob)
         {
+            StartCoroutine(hii());
             life -= dmg;
             if (life + dmg >= 0)
                 InstantiateLifeFeedBack(-dmg);
             StartCoroutine(rectime());
         }
     }
-
+    private IEnumerator hii()
+    {
+        anim.SetTrigger("hit");
+        yield return new WaitForSecondsRealtime(1);
+        
+    }
 
 
 }
