@@ -153,6 +153,7 @@
     <Compile Include="Assets\Scripts\chaser.cs" />
     <Compile Include="Assets\Scripts\coinController.cs" />
     <Compile Include="Assets\Scripts\DamagePlayer.cs" />
+    <Compile Include="Assets\Scripts\Dialogos\fadeEffects.cs" />
     <Compile Include="Assets\Scripts\DmgObjetc.cs" />
     <Compile Include="Assets\Scripts\DoorController.cs" />
     <Compile Include="Assets\Scripts\EnemyValues.cs" />
@@ -165,6 +166,12 @@
     <Compile Include="Assets\Scripts\HideObjects.cs" />
     <Compile Include="Assets\Scripts\LifeFeedBack.cs" />
     <Compile Include="Assets\Scripts\Loader.cs" />
+    <Compile Include="Assets\Scripts\Menu\ButtonTrigger.cs" />
+    <Compile Include="Assets\Scripts\Menu\Dialogue.cs" />
+    <Compile Include="Assets\Scripts\Menu\DialogueManager.cs" />
+    <Compile Include="Assets\Scripts\Menu\DialogueTrigger.cs" />
+    <Compile Include="Assets\Scripts\Menu\TextBoxManager.cs" />
+    <Compile Include="Assets\Scripts\Menu\TextImporter.cs" />
     <Compile Include="Assets\Scripts\MenuManagerScript.cs" />
     <Compile Include="Assets\Scripts\MoveBullet.cs" />
     <Compile Include="Assets\Scripts\MusicController.cs" />
@@ -188,6 +195,7 @@
     <Compile Include="Assets\shakeit.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Assets\Texto\Dialogo 1.txt" />
     <None Include="Assets\BrokenVector\LowPolyShaders\README.txt" />
     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyPBRShader.shader" />
     <None Include="Assets\BrokenVector\LowPolyShaders\Shaders\LowPolyUnlitShader.shader" />

@@ -14,6 +14,7 @@ public class chaser : MonoBehaviour,DmgObjetc {
     public bool rand = false;
     public bool patrol;
     [SerializeField] private GameObject currentTarget;
+    public GameObject weapon;
     public bool chase = false;
     public bool attack = false;
     public GameObject[] waypoints;
@@ -24,11 +25,13 @@ public class chaser : MonoBehaviour,DmgObjetc {
     [SerializeField] private Collider[] cview;
     [SerializeField] private float view;
     [SerializeField] private float chases;
+    private float walkspeed;
+    private float walkaccel;
     private Transform trans;
     private Animator anim;
     private int waypointtarget;
     public float dis;
-
+    private int countwait = 0;
 	public GameObject lifeFeedBack;
 	Transform lifeFeedBackSpawnPoint;
 
@@ -48,12 +51,14 @@ public class chaser : MonoBehaviour,DmgObjetc {
         chases = enemy.chasedistance;
         view = enemy.viewdistance;
         recoverytiem = enemy.recoverytime;
+        walkspeed = enemy.walkspeed;
+        walkaccel = enemy.walkaccel;
         anim = GetComponent<Animator>();
         trans = GetComponent<Transform>();
         player = GameObject.Find("Player");
         agent = GetComponent<NavMeshAgent>();
-        agent.acceleration = enemy.acceleration;
-        agent.speed = enemy.maxspeed;
+        
+       
         agent.stoppingDistance = enemy.attackrange;
 
         recob = false;
@@ -88,6 +93,8 @@ public class chaser : MonoBehaviour,DmgObjetc {
 
         if(cview.Length!=0 && Cchase.Length==0)
             {
+                agent.acceleration = enemy.acceleration;
+                agent.speed = enemy.maxspeed;
                 Vector3 look = new Vector3(player.transform.position.x, trans.position.y, player.transform.position.z);
                 agent.destination = trans.position;
                 anim.SetBool("alert", true);
@@ -114,6 +121,8 @@ public class chaser : MonoBehaviour,DmgObjetc {
         {
                 if (patrol && Cchase.Length == 0 && cview.Length == 0)
                 {
+                    agent.acceleration = walkaccel;
+                    agent.speed = walkspeed;
                     float distance = Vector3.Distance(trans.position, waypoints[num].transform.position);
                     if (distance >= agent.stoppingDistance)
                     {
@@ -123,6 +132,9 @@ public class chaser : MonoBehaviour,DmgObjetc {
                     }
                     else
                     {
+                       if(countwait>=100)
+                        {
+
                         if (num + 1 == waypoints.Length)
                         {
                             num = 0;
@@ -130,6 +142,13 @@ public class chaser : MonoBehaviour,DmgObjetc {
                         else
                         {
                             num++;
+                        }
+                            countwait = 0;
+                        }
+                       else
+                        {
+                            countwait++;
+                            anim.SetBool("caminar", false);
                         }
                     }
 
@@ -200,8 +219,11 @@ public class chaser : MonoBehaviour,DmgObjetc {
     {
             anim.SetBool("attack1", true);
             attack = true;
-            yield return new WaitForSeconds(2.3f);
-            anim.SetBool("attack1", false);
+        yield return new WaitForSeconds(1f);
+        weapon.GetComponent<CapsuleCollider>().enabled = true;
+            yield return new WaitForSeconds(2f);
+        weapon.GetComponent<CapsuleCollider>().enabled = false;
+        anim.SetBool("attack1", false);
      
         attack = false;
         
