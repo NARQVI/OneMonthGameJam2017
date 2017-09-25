@@ -21,4 +21,8 @@ public class EnemyValues : ScriptableObject {
     public float acceleration;
 
     public float maxspeed;
+
+    public float walkspeed;
+
+    public float walkaccel;
 }
